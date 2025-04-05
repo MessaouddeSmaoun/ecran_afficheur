@@ -1,6 +1,6 @@
 # ecran_afficheur
 
-A new Flutter project.
+application for screen to display detail queue application.
 
 ## Getting Started
 
