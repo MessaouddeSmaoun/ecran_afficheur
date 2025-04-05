@@ -11,7 +11,6 @@ import 'package:ecran_afficheur/variable.dart';
 import 'package:ecran_afficheur/widget/connection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:path/path.dart' as p;
 import 'package:permission_handler/permission_handler.dart';
 import '../isar/modal_entete_ecran.dart';
@@ -188,7 +187,7 @@ Future<void> setSound(WidgetRef ref) async {
 }
 
 Future<void> setPlay(WidgetRef ref) async {
-  String symbol = ref.watch(textNumeroNumero).titre.replaceAll(RegExp(r'[^a-zA-Z]'), '');
+ // String symbol = ref.watch(textNumeroNumero).titre.replaceAll(RegExp(r'[^a-zA-Z]'), '');
   String numbers = ref.watch(textNumeroNumero).titre.replaceAll(RegExp(r'[^0-9]'), '');
 
   numbers = int.parse(numbers).toString();
@@ -197,7 +196,7 @@ Future<void> setPlay(WidgetRef ref) async {
   debugPrint("langueArabDisp ${ref.watch(isFrancais)}");
   debugPrint("langueFrancaisDisp $langueFrancaisDisp");
   debugPrint("langueArabDisp ${ref.watch(isArab)}");
-
+/*
   if (ref.watch(isFrancais) && langueFrancaisDisp) {
 
     await flutterTts.setLanguage("fr-FR");
@@ -216,8 +215,10 @@ Future<void> setPlay(WidgetRef ref) async {
     debugPrint("isFrancais");
   }
 
+ */
 
 
+/*
   if (ref.watch(isArab) && langueArabDisp){
     if (ref.watch(isFrancais) && langueFrancaisDisp) {
       await Future.delayed(Duration(milliseconds: 900));
@@ -237,6 +238,8 @@ Future<void> setPlay(WidgetRef ref) async {
     debugPrint("isArab");
   }
 
+ */
+
 
 
   await Future.delayed(Duration(seconds: delayAttenteVocal));
@@ -251,26 +254,7 @@ Future<void> setPlay(WidgetRef ref) async {
 
 }
 
-void initTts() async {
-  flutterTts = FlutterTts();
-  /*
-  flutterTts.getVoices.then((data) {
-    List<Map> voices = List<Map>.from(data);
-    List<Map> frenchVoices =
-    voices.where((v) => v["locale"].toString().startsWith("fr")).toList();
 
-  });
-
-  List<dynamic> languages = await flutterTts.getLanguages;
-   */
-  langueArabDisp = await flutterTts.isLanguageAvailable("ar-DZ");
-  langueFrancaisDisp = await flutterTts.isLanguageAvailable("fr-FR");
-
-  await flutterTts.setSpeechRate(0.45);
-  await flutterTts.setVolume(1.0);
-  await flutterTts.setPitch(1);
-  await flutterTts.awaitSpeakCompletion(true);
-}
 
 Future<void> initVariable(WidgetRef ref) async {
   ModalEnteteEcran modeEntete = await IsarFunction().getEnteteEcran();

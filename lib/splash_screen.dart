@@ -1,8 +1,6 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:ecran_afficheur/principal_page.dart';
-import 'package:ecran_afficheur/state_manager/state_ecran.dart';
 import 'package:ecran_afficheur/variable.dart';
 import 'package:ecran_afficheur/widget/connection.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +47,6 @@ import 'main.dart';
       WakelockPlus.enable();
 
       Future.delayed(const Duration(seconds: 4), () async {
-          initTts();
           playerSound = pl.AudioPlayer();
           player = Player();
           controller = VideoController(player);

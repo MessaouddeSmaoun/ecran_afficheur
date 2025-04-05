@@ -5,7 +5,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:ecran_afficheur/isar/data_isar.dart';
 import 'package:ecran_afficheur/modal/modal_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 
@@ -35,8 +34,6 @@ Directory? externalDir;
 Directory? result;
 
 String serverIp = "";
-
- late FlutterTts flutterTts;
 
 int indexMedia = 0;
 late int durerImage;
