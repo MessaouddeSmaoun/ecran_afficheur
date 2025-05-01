@@ -26,17 +26,13 @@ class TemplateNumero extends ConsumerWidget {
         fontSize: 150,
         color: (titre.colorText),
         fontWeight:
-        (titre.isBold) ? FontWeight.bold : FontWeight.normal,
-        fontStyle:
-        (titre.isItalic) ? FontStyle.italic : FontStyle.normal);
+        (titre.isBold) ? FontWeight.bold : FontWeight.normal,);
 
     final styleSousTitre = TextStyle(
         fontSize: 150,
         color: (numero.colorText),
         fontWeight:
-        (numero.isBold) ? FontWeight.bold : FontWeight.normal,
-        fontStyle:
-        (numero.isItalic) ? FontStyle.italic : FontStyle.normal);
+        (numero.isBold) ? FontWeight.bold : FontWeight.normal,);
 
 
     return  Column(

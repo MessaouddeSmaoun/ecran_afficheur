@@ -9,12 +9,10 @@ class ModalEnteteEcran {
     required this.fontArab,
     required this.colorTextArab,
     required this.isBoldArab,
-    required this.isItalicArab,
     required this.enteteFrancais,
     required this.fontFrancais,
     required this.colorTextFrancais,
     required this.isBoldFrancais,
-    required this.isItalicFrancais,
     required this.colorFond,
     required this.isFondImage,
     required this.colorIcon,
@@ -34,13 +32,11 @@ class ModalEnteteEcran {
   String fontArab;
   int colorTextArab;
   bool isBoldArab;
-  bool isItalicArab;
 
   String enteteFrancais;
   String fontFrancais;
   int colorTextFrancais;
   bool isBoldFrancais;
-  bool isItalicFrancais;
 
   int colorFond;
   bool isFondImage;

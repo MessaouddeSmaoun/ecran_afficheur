@@ -13,42 +13,52 @@ class DateTimeWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return (ref.watch(isClockDateVisible))?Flexible(
-      flex: 2,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      flex: 4,
+      child: Column(
         children: [
-          Expanded(
-            child: Container(
-              alignment: Alignment.centerLeft,
-              child: FractionallySizedBox(
-                widthFactor: 0.3,
-                heightFactor: 3,
-                child: FittedBox(
-                  child: Text(
-                    ref.watch(date),
-                    style: TextStyle(fontSize: 2500,color:  ref.watch(colorDateHorloge),fontWeight: FontWeight.bold),
+          Flexible(
+            child: FractionallySizedBox(
+              widthFactor: 0.98,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Container(
+                      alignment: Alignment.centerLeft,
+                      child: FractionallySizedBox(
+                        widthFactor: 0.3,
+                        heightFactor: 3,
+                        child: FittedBox(
+                          child: Text(
+                            ref.watch(date),
+                            style: TextStyle(fontSize: 2500,color:  ref.watch(colorDateHorloge),fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-          ),
-          Expanded(
-            child: Container(
-          alignment: Alignment.centerRight,
-    child: FractionallySizedBox(
-    widthFactor: 0.3,
-    heightFactor: 3,
-                child: FittedBox(
-                  child: Text(
-                    ref.watch(time),
-                    style: TextStyle(fontSize: 2500,color:  ref.watch(colorDateHorloge),fontWeight: FontWeight.bold),
+                  Expanded(
+                    child: Container(
+                  alignment: Alignment.centerRight,
+                  child: FractionallySizedBox(
+                  widthFactor: 0.3,
+                  heightFactor: 3,
+                        child: FittedBox(
+                          child: Text(
+                            ref.watch(time),
+                            style: TextStyle(fontSize: 2500,color:  ref.watch(colorDateHorloge),fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-          ),
 
+                ],
+              ),
+            ),
+          ),
+          Flexible(child: FractionallySizedBox(heightFactor: 0.02,child: SizedBox(),)),
         ],
       ),
     ):const SizedBox();

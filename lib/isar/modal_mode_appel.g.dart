@@ -17,130 +17,215 @@ const ModalModeAppelSchema = CollectionSchema(
   name: r'ModalModeAppel',
   id: -695503806377979338,
   properties: {
-    r'guichetNumeroColorText': PropertySchema(
+    r'boiteServiceBandeMAClignotment': PropertySchema(
       id: 0,
+      name: r'boiteServiceBandeMAClignotment',
+      type: IsarType.long,
+    ),
+    r'boiteServiceBandeMAFond': PropertySchema(
+      id: 1,
+      name: r'boiteServiceBandeMAFond',
+      type: IsarType.long,
+    ),
+    r'coleurGuichetMA': PropertySchema(
+      id: 2,
+      name: r'coleurGuichetMA',
+      type: IsarType.long,
+    ),
+    r'coleurNumeroMA': PropertySchema(
+      id: 3,
+      name: r'coleurNumeroMA',
+      type: IsarType.long,
+    ),
+    r'fontNumeroSelected': PropertySchema(
+      id: 4,
+      name: r'fontNumeroSelected',
+      type: IsarType.string,
+    ),
+    r'guichetNumeroColorText': PropertySchema(
+      id: 5,
       name: r'guichetNumeroColorText',
       type: IsarType.long,
     ),
     r'guichetNumeroCouleurClignotment': PropertySchema(
-      id: 1,
+      id: 6,
       name: r'guichetNumeroCouleurClignotment',
       type: IsarType.long,
     ),
     r'guichetNumeroCouleurFond': PropertySchema(
-      id: 2,
+      id: 7,
       name: r'guichetNumeroCouleurFond',
       type: IsarType.long,
     ),
     r'guichetNumeroIsBold': PropertySchema(
-      id: 3,
+      id: 8,
       name: r'guichetNumeroIsBold',
       type: IsarType.bool,
     ),
-    r'guichetNumeroIsItalic': PropertySchema(
-      id: 4,
-      name: r'guichetNumeroIsItalic',
-      type: IsarType.bool,
-    ),
     r'guichetNumeroStyleBoite': PropertySchema(
-      id: 5,
+      id: 9,
       name: r'guichetNumeroStyleBoite',
       type: IsarType.string,
     ),
     r'guichetTitreColorText': PropertySchema(
-      id: 6,
+      id: 10,
       name: r'guichetTitreColorText',
       type: IsarType.long,
     ),
     r'guichetTitreCouleurClignotment': PropertySchema(
-      id: 7,
+      id: 11,
       name: r'guichetTitreCouleurClignotment',
       type: IsarType.long,
     ),
     r'guichetTitreCouleurFond': PropertySchema(
-      id: 8,
+      id: 12,
       name: r'guichetTitreCouleurFond',
       type: IsarType.long,
     ),
     r'guichetTitreIsBold': PropertySchema(
-      id: 9,
+      id: 13,
       name: r'guichetTitreIsBold',
       type: IsarType.bool,
     ),
-    r'guichetTitreIsItalic': PropertySchema(
-      id: 10,
-      name: r'guichetTitreIsItalic',
-      type: IsarType.bool,
-    ),
     r'guichetTitreStyleBoite': PropertySchema(
-      id: 11,
+      id: 14,
       name: r'guichetTitreStyleBoite',
       type: IsarType.string,
     ),
     r'intervalleClignotment': PropertySchema(
-      id: 12,
+      id: 15,
       name: r'intervalleClignotment',
       type: IsarType.long,
     ),
+    r'isListGuchetVisible': PropertySchema(
+      id: 16,
+      name: r'isListGuchetVisible',
+      type: IsarType.bool,
+    ),
+    r'modeAppelSelected': PropertySchema(
+      id: 17,
+      name: r'modeAppelSelected',
+      type: IsarType.string,
+    ),
+    r'nomGuichetAr': PropertySchema(
+      id: 18,
+      name: r'nomGuichetAr',
+      type: IsarType.string,
+    ),
+    r'nomGuichetFr': PropertySchema(
+      id: 19,
+      name: r'nomGuichetFr',
+      type: IsarType.string,
+    ),
+    r'nomNumeroAr': PropertySchema(
+      id: 20,
+      name: r'nomNumeroAr',
+      type: IsarType.string,
+    ),
+    r'nomNumeroFr': PropertySchema(
+      id: 21,
+      name: r'nomNumeroFr',
+      type: IsarType.string,
+    ),
     r'numeroNumeroColorText': PropertySchema(
-      id: 13,
+      id: 22,
       name: r'numeroNumeroColorText',
       type: IsarType.long,
     ),
     r'numeroNumeroCouleurClignotment': PropertySchema(
-      id: 14,
+      id: 23,
       name: r'numeroNumeroCouleurClignotment',
       type: IsarType.long,
     ),
     r'numeroNumeroCouleurFond': PropertySchema(
-      id: 15,
+      id: 24,
       name: r'numeroNumeroCouleurFond',
       type: IsarType.long,
     ),
     r'numeroNumeroIsBold': PropertySchema(
-      id: 16,
+      id: 25,
       name: r'numeroNumeroIsBold',
       type: IsarType.bool,
     ),
-    r'numeroNumeroIsItalic': PropertySchema(
-      id: 17,
-      name: r'numeroNumeroIsItalic',
-      type: IsarType.bool,
-    ),
     r'numeroNumeroStyleBoite': PropertySchema(
-      id: 18,
+      id: 26,
       name: r'numeroNumeroStyleBoite',
       type: IsarType.string,
     ),
     r'numeroTitreColorText': PropertySchema(
-      id: 19,
+      id: 27,
       name: r'numeroTitreColorText',
       type: IsarType.long,
     ),
     r'numeroTitreCouleurClignotment': PropertySchema(
-      id: 20,
+      id: 28,
       name: r'numeroTitreCouleurClignotment',
       type: IsarType.long,
     ),
     r'numeroTitreCouleurFond': PropertySchema(
-      id: 21,
+      id: 29,
       name: r'numeroTitreCouleurFond',
       type: IsarType.long,
     ),
     r'numeroTitreIsBold': PropertySchema(
-      id: 22,
+      id: 30,
       name: r'numeroTitreIsBold',
       type: IsarType.bool,
     ),
-    r'numeroTitreIsItalic': PropertySchema(
-      id: 23,
-      name: r'numeroTitreIsItalic',
-      type: IsarType.bool,
-    ),
     r'numeroTitreStyleBoite': PropertySchema(
-      id: 24,
+      id: 31,
       name: r'numeroTitreStyleBoite',
       type: IsarType.string,
+    ),
+    r'positionAffichageServiceMA': PropertySchema(
+      id: 32,
+      name: r'positionAffichageServiceMA',
+      type: IsarType.string,
+    ),
+    r'textListAppelMAColor': PropertySchema(
+      id: 33,
+      name: r'textListAppelMAColor',
+      type: IsarType.long,
+    ),
+    r'textListAppelMAfontAr': PropertySchema(
+      id: 34,
+      name: r'textListAppelMAfontAr',
+      type: IsarType.string,
+    ),
+    r'textListAppelMAfontFr': PropertySchema(
+      id: 35,
+      name: r'textListAppelMAfontFr',
+      type: IsarType.string,
+    ),
+    r'textListAppelMAisBold': PropertySchema(
+      id: 36,
+      name: r'textListAppelMAisBold',
+      type: IsarType.bool,
+    ),
+    r'textServiceBandeMAColor': PropertySchema(
+      id: 37,
+      name: r'textServiceBandeMAColor',
+      type: IsarType.long,
+    ),
+    r'textServiceBandeMAfontAr': PropertySchema(
+      id: 38,
+      name: r'textServiceBandeMAfontAr',
+      type: IsarType.string,
+    ),
+    r'textServiceBandeMAfontFr': PropertySchema(
+      id: 39,
+      name: r'textServiceBandeMAfontFr',
+      type: IsarType.string,
+    ),
+    r'textServiceBandeMAisBold': PropertySchema(
+      id: 40,
+      name: r'textServiceBandeMAisBold',
+      type: IsarType.bool,
+    ),
+    r'visibleTextServiceBandeMA': PropertySchema(
+      id: 41,
+      name: r'visibleTextServiceBandeMA',
+      type: IsarType.bool,
     )
   },
   estimateSize: _modalModeAppelEstimateSize,
@@ -163,10 +248,21 @@ int _modalModeAppelEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
+  bytesCount += 3 + object.fontNumeroSelected.length * 3;
   bytesCount += 3 + object.guichetNumeroStyleBoite.length * 3;
   bytesCount += 3 + object.guichetTitreStyleBoite.length * 3;
+  bytesCount += 3 + object.modeAppelSelected.length * 3;
+  bytesCount += 3 + object.nomGuichetAr.length * 3;
+  bytesCount += 3 + object.nomGuichetFr.length * 3;
+  bytesCount += 3 + object.nomNumeroAr.length * 3;
+  bytesCount += 3 + object.nomNumeroFr.length * 3;
   bytesCount += 3 + object.numeroNumeroStyleBoite.length * 3;
   bytesCount += 3 + object.numeroTitreStyleBoite.length * 3;
+  bytesCount += 3 + object.positionAffichageServiceMA.length * 3;
+  bytesCount += 3 + object.textListAppelMAfontAr.length * 3;
+  bytesCount += 3 + object.textListAppelMAfontFr.length * 3;
+  bytesCount += 3 + object.textServiceBandeMAfontAr.length * 3;
+  bytesCount += 3 + object.textServiceBandeMAfontFr.length * 3;
   return bytesCount;
 }
 
@@ -176,31 +272,48 @@ void _modalModeAppelSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeLong(offsets[0], object.guichetNumeroColorText);
-  writer.writeLong(offsets[1], object.guichetNumeroCouleurClignotment);
-  writer.writeLong(offsets[2], object.guichetNumeroCouleurFond);
-  writer.writeBool(offsets[3], object.guichetNumeroIsBold);
-  writer.writeBool(offsets[4], object.guichetNumeroIsItalic);
-  writer.writeString(offsets[5], object.guichetNumeroStyleBoite);
-  writer.writeLong(offsets[6], object.guichetTitreColorText);
-  writer.writeLong(offsets[7], object.guichetTitreCouleurClignotment);
-  writer.writeLong(offsets[8], object.guichetTitreCouleurFond);
-  writer.writeBool(offsets[9], object.guichetTitreIsBold);
-  writer.writeBool(offsets[10], object.guichetTitreIsItalic);
-  writer.writeString(offsets[11], object.guichetTitreStyleBoite);
-  writer.writeLong(offsets[12], object.intervalleClignotment);
-  writer.writeLong(offsets[13], object.numeroNumeroColorText);
-  writer.writeLong(offsets[14], object.numeroNumeroCouleurClignotment);
-  writer.writeLong(offsets[15], object.numeroNumeroCouleurFond);
-  writer.writeBool(offsets[16], object.numeroNumeroIsBold);
-  writer.writeBool(offsets[17], object.numeroNumeroIsItalic);
-  writer.writeString(offsets[18], object.numeroNumeroStyleBoite);
-  writer.writeLong(offsets[19], object.numeroTitreColorText);
-  writer.writeLong(offsets[20], object.numeroTitreCouleurClignotment);
-  writer.writeLong(offsets[21], object.numeroTitreCouleurFond);
-  writer.writeBool(offsets[22], object.numeroTitreIsBold);
-  writer.writeBool(offsets[23], object.numeroTitreIsItalic);
-  writer.writeString(offsets[24], object.numeroTitreStyleBoite);
+  writer.writeLong(offsets[0], object.boiteServiceBandeMAClignotment);
+  writer.writeLong(offsets[1], object.boiteServiceBandeMAFond);
+  writer.writeLong(offsets[2], object.coleurGuichetMA);
+  writer.writeLong(offsets[3], object.coleurNumeroMA);
+  writer.writeString(offsets[4], object.fontNumeroSelected);
+  writer.writeLong(offsets[5], object.guichetNumeroColorText);
+  writer.writeLong(offsets[6], object.guichetNumeroCouleurClignotment);
+  writer.writeLong(offsets[7], object.guichetNumeroCouleurFond);
+  writer.writeBool(offsets[8], object.guichetNumeroIsBold);
+  writer.writeString(offsets[9], object.guichetNumeroStyleBoite);
+  writer.writeLong(offsets[10], object.guichetTitreColorText);
+  writer.writeLong(offsets[11], object.guichetTitreCouleurClignotment);
+  writer.writeLong(offsets[12], object.guichetTitreCouleurFond);
+  writer.writeBool(offsets[13], object.guichetTitreIsBold);
+  writer.writeString(offsets[14], object.guichetTitreStyleBoite);
+  writer.writeLong(offsets[15], object.intervalleClignotment);
+  writer.writeBool(offsets[16], object.isListGuchetVisible);
+  writer.writeString(offsets[17], object.modeAppelSelected);
+  writer.writeString(offsets[18], object.nomGuichetAr);
+  writer.writeString(offsets[19], object.nomGuichetFr);
+  writer.writeString(offsets[20], object.nomNumeroAr);
+  writer.writeString(offsets[21], object.nomNumeroFr);
+  writer.writeLong(offsets[22], object.numeroNumeroColorText);
+  writer.writeLong(offsets[23], object.numeroNumeroCouleurClignotment);
+  writer.writeLong(offsets[24], object.numeroNumeroCouleurFond);
+  writer.writeBool(offsets[25], object.numeroNumeroIsBold);
+  writer.writeString(offsets[26], object.numeroNumeroStyleBoite);
+  writer.writeLong(offsets[27], object.numeroTitreColorText);
+  writer.writeLong(offsets[28], object.numeroTitreCouleurClignotment);
+  writer.writeLong(offsets[29], object.numeroTitreCouleurFond);
+  writer.writeBool(offsets[30], object.numeroTitreIsBold);
+  writer.writeString(offsets[31], object.numeroTitreStyleBoite);
+  writer.writeString(offsets[32], object.positionAffichageServiceMA);
+  writer.writeLong(offsets[33], object.textListAppelMAColor);
+  writer.writeString(offsets[34], object.textListAppelMAfontAr);
+  writer.writeString(offsets[35], object.textListAppelMAfontFr);
+  writer.writeBool(offsets[36], object.textListAppelMAisBold);
+  writer.writeLong(offsets[37], object.textServiceBandeMAColor);
+  writer.writeString(offsets[38], object.textServiceBandeMAfontAr);
+  writer.writeString(offsets[39], object.textServiceBandeMAfontFr);
+  writer.writeBool(offsets[40], object.textServiceBandeMAisBold);
+  writer.writeBool(offsets[41], object.visibleTextServiceBandeMA);
 }
 
 ModalModeAppel _modalModeAppelDeserialize(
@@ -210,31 +323,48 @@ ModalModeAppel _modalModeAppelDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = ModalModeAppel(
-    guichetNumeroColorText: reader.readLong(offsets[0]),
-    guichetNumeroCouleurClignotment: reader.readLong(offsets[1]),
-    guichetNumeroCouleurFond: reader.readLong(offsets[2]),
-    guichetNumeroIsBold: reader.readBool(offsets[3]),
-    guichetNumeroIsItalic: reader.readBool(offsets[4]),
-    guichetNumeroStyleBoite: reader.readString(offsets[5]),
-    guichetTitreColorText: reader.readLong(offsets[6]),
-    guichetTitreCouleurClignotment: reader.readLong(offsets[7]),
-    guichetTitreCouleurFond: reader.readLong(offsets[8]),
-    guichetTitreIsBold: reader.readBool(offsets[9]),
-    guichetTitreIsItalic: reader.readBool(offsets[10]),
-    guichetTitreStyleBoite: reader.readString(offsets[11]),
-    intervalleClignotment: reader.readLong(offsets[12]),
-    numeroNumeroColorText: reader.readLong(offsets[13]),
-    numeroNumeroCouleurClignotment: reader.readLong(offsets[14]),
-    numeroNumeroCouleurFond: reader.readLong(offsets[15]),
-    numeroNumeroIsBold: reader.readBool(offsets[16]),
-    numeroNumeroIsItalic: reader.readBool(offsets[17]),
-    numeroNumeroStyleBoite: reader.readString(offsets[18]),
-    numeroTitreColorText: reader.readLong(offsets[19]),
-    numeroTitreCouleurClignotment: reader.readLong(offsets[20]),
-    numeroTitreCouleurFond: reader.readLong(offsets[21]),
-    numeroTitreIsBold: reader.readBool(offsets[22]),
-    numeroTitreIsItalic: reader.readBool(offsets[23]),
-    numeroTitreStyleBoite: reader.readString(offsets[24]),
+    boiteServiceBandeMAClignotment: reader.readLong(offsets[0]),
+    boiteServiceBandeMAFond: reader.readLong(offsets[1]),
+    coleurGuichetMA: reader.readLong(offsets[2]),
+    coleurNumeroMA: reader.readLong(offsets[3]),
+    fontNumeroSelected: reader.readString(offsets[4]),
+    guichetNumeroColorText: reader.readLong(offsets[5]),
+    guichetNumeroCouleurClignotment: reader.readLong(offsets[6]),
+    guichetNumeroCouleurFond: reader.readLong(offsets[7]),
+    guichetNumeroIsBold: reader.readBool(offsets[8]),
+    guichetNumeroStyleBoite: reader.readString(offsets[9]),
+    guichetTitreColorText: reader.readLong(offsets[10]),
+    guichetTitreCouleurClignotment: reader.readLong(offsets[11]),
+    guichetTitreCouleurFond: reader.readLong(offsets[12]),
+    guichetTitreIsBold: reader.readBool(offsets[13]),
+    guichetTitreStyleBoite: reader.readString(offsets[14]),
+    intervalleClignotment: reader.readLong(offsets[15]),
+    isListGuchetVisible: reader.readBool(offsets[16]),
+    modeAppelSelected: reader.readString(offsets[17]),
+    nomGuichetAr: reader.readString(offsets[18]),
+    nomGuichetFr: reader.readString(offsets[19]),
+    nomNumeroAr: reader.readString(offsets[20]),
+    nomNumeroFr: reader.readString(offsets[21]),
+    numeroNumeroColorText: reader.readLong(offsets[22]),
+    numeroNumeroCouleurClignotment: reader.readLong(offsets[23]),
+    numeroNumeroCouleurFond: reader.readLong(offsets[24]),
+    numeroNumeroIsBold: reader.readBool(offsets[25]),
+    numeroNumeroStyleBoite: reader.readString(offsets[26]),
+    numeroTitreColorText: reader.readLong(offsets[27]),
+    numeroTitreCouleurClignotment: reader.readLong(offsets[28]),
+    numeroTitreCouleurFond: reader.readLong(offsets[29]),
+    numeroTitreIsBold: reader.readBool(offsets[30]),
+    numeroTitreStyleBoite: reader.readString(offsets[31]),
+    positionAffichageServiceMA: reader.readString(offsets[32]),
+    textListAppelMAColor: reader.readLong(offsets[33]),
+    textListAppelMAfontAr: reader.readString(offsets[34]),
+    textListAppelMAfontFr: reader.readString(offsets[35]),
+    textListAppelMAisBold: reader.readBool(offsets[36]),
+    textServiceBandeMAColor: reader.readLong(offsets[37]),
+    textServiceBandeMAfontAr: reader.readString(offsets[38]),
+    textServiceBandeMAfontFr: reader.readString(offsets[39]),
+    textServiceBandeMAisBold: reader.readBool(offsets[40]),
+    visibleTextServiceBandeMA: reader.readBool(offsets[41]),
   );
   object.id = id;
   return object;
@@ -254,49 +384,83 @@ P _modalModeAppelDeserializeProp<P>(
     case 2:
       return (reader.readLong(offset)) as P;
     case 3:
-      return (reader.readBool(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 4:
-      return (reader.readBool(offset)) as P;
-    case 5:
       return (reader.readString(offset)) as P;
+    case 5:
+      return (reader.readLong(offset)) as P;
     case 6:
       return (reader.readLong(offset)) as P;
     case 7:
       return (reader.readLong(offset)) as P;
     case 8:
-      return (reader.readLong(offset)) as P;
+      return (reader.readBool(offset)) as P;
     case 9:
-      return (reader.readBool(offset)) as P;
-    case 10:
-      return (reader.readBool(offset)) as P;
-    case 11:
       return (reader.readString(offset)) as P;
+    case 10:
+      return (reader.readLong(offset)) as P;
+    case 11:
+      return (reader.readLong(offset)) as P;
     case 12:
       return (reader.readLong(offset)) as P;
     case 13:
-      return (reader.readLong(offset)) as P;
+      return (reader.readBool(offset)) as P;
     case 14:
-      return (reader.readLong(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 15:
       return (reader.readLong(offset)) as P;
     case 16:
       return (reader.readBool(offset)) as P;
     case 17:
-      return (reader.readBool(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 18:
       return (reader.readString(offset)) as P;
     case 19:
-      return (reader.readLong(offset)) as P;
-    case 20:
-      return (reader.readLong(offset)) as P;
-    case 21:
-      return (reader.readLong(offset)) as P;
-    case 22:
-      return (reader.readBool(offset)) as P;
-    case 23:
-      return (reader.readBool(offset)) as P;
-    case 24:
       return (reader.readString(offset)) as P;
+    case 20:
+      return (reader.readString(offset)) as P;
+    case 21:
+      return (reader.readString(offset)) as P;
+    case 22:
+      return (reader.readLong(offset)) as P;
+    case 23:
+      return (reader.readLong(offset)) as P;
+    case 24:
+      return (reader.readLong(offset)) as P;
+    case 25:
+      return (reader.readBool(offset)) as P;
+    case 26:
+      return (reader.readString(offset)) as P;
+    case 27:
+      return (reader.readLong(offset)) as P;
+    case 28:
+      return (reader.readLong(offset)) as P;
+    case 29:
+      return (reader.readLong(offset)) as P;
+    case 30:
+      return (reader.readBool(offset)) as P;
+    case 31:
+      return (reader.readString(offset)) as P;
+    case 32:
+      return (reader.readString(offset)) as P;
+    case 33:
+      return (reader.readLong(offset)) as P;
+    case 34:
+      return (reader.readString(offset)) as P;
+    case 35:
+      return (reader.readString(offset)) as P;
+    case 36:
+      return (reader.readBool(offset)) as P;
+    case 37:
+      return (reader.readLong(offset)) as P;
+    case 38:
+      return (reader.readString(offset)) as P;
+    case 39:
+      return (reader.readString(offset)) as P;
+    case 40:
+      return (reader.readBool(offset)) as P;
+    case 41:
+      return (reader.readBool(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -398,6 +562,366 @@ extension ModalModeAppelQueryWhere
 
 extension ModalModeAppelQueryFilter
     on QueryBuilder<ModalModeAppel, ModalModeAppel, QFilterCondition> {
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      boiteServiceBandeMAClignotmentEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'boiteServiceBandeMAClignotment',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      boiteServiceBandeMAClignotmentGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'boiteServiceBandeMAClignotment',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      boiteServiceBandeMAClignotmentLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'boiteServiceBandeMAClignotment',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      boiteServiceBandeMAClignotmentBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'boiteServiceBandeMAClignotment',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      boiteServiceBandeMAFondEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'boiteServiceBandeMAFond',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      boiteServiceBandeMAFondGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'boiteServiceBandeMAFond',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      boiteServiceBandeMAFondLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'boiteServiceBandeMAFond',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      boiteServiceBandeMAFondBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'boiteServiceBandeMAFond',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      coleurGuichetMAEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'coleurGuichetMA',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      coleurGuichetMAGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'coleurGuichetMA',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      coleurGuichetMALessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'coleurGuichetMA',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      coleurGuichetMABetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'coleurGuichetMA',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      coleurNumeroMAEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'coleurNumeroMA',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      coleurNumeroMAGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'coleurNumeroMA',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      coleurNumeroMALessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'coleurNumeroMA',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      coleurNumeroMABetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'coleurNumeroMA',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'fontNumeroSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'fontNumeroSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'fontNumeroSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'fontNumeroSelected',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'fontNumeroSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'fontNumeroSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'fontNumeroSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'fontNumeroSelected',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'fontNumeroSelected',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      fontNumeroSelectedIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'fontNumeroSelected',
+        value: '',
+      ));
+    });
+  }
+
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
       guichetNumeroColorTextEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
@@ -571,16 +1095,6 @@ extension ModalModeAppelQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'guichetNumeroIsBold',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
-      guichetNumeroIsItalicEqualTo(bool value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'guichetNumeroIsItalic',
         value: value,
       ));
     });
@@ -903,16 +1417,6 @@ extension ModalModeAppelQueryFilter
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
-      guichetTitreIsItalicEqualTo(bool value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'guichetTitreIsItalic',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
       guichetTitreStyleBoiteEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -1162,6 +1666,696 @@ extension ModalModeAppelQueryFilter
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      isListGuchetVisibleEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'isListGuchetVisible',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'modeAppelSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'modeAppelSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'modeAppelSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'modeAppelSelected',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'modeAppelSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'modeAppelSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'modeAppelSelected',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'modeAppelSelected',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'modeAppelSelected',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      modeAppelSelectedIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'modeAppelSelected',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'nomGuichetAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'nomGuichetAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'nomGuichetAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'nomGuichetAr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'nomGuichetAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'nomGuichetAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'nomGuichetAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'nomGuichetAr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'nomGuichetAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetArIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'nomGuichetAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'nomGuichetFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'nomGuichetFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'nomGuichetFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'nomGuichetFr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'nomGuichetFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'nomGuichetFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'nomGuichetFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'nomGuichetFr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'nomGuichetFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomGuichetFrIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'nomGuichetFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'nomNumeroAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'nomNumeroAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'nomNumeroAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'nomNumeroAr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'nomNumeroAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'nomNumeroAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'nomNumeroAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'nomNumeroAr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'nomNumeroAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroArIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'nomNumeroAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'nomNumeroFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'nomNumeroFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'nomNumeroFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'nomNumeroFr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'nomNumeroFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'nomNumeroFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'nomNumeroFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'nomNumeroFr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'nomNumeroFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      nomNumeroFrIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'nomNumeroFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
       numeroNumeroColorTextEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -1334,16 +2528,6 @@ extension ModalModeAppelQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'numeroNumeroIsBold',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
-      numeroNumeroIsItalicEqualTo(bool value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'numeroNumeroIsItalic',
         value: value,
       ));
     });
@@ -1666,16 +2850,6 @@ extension ModalModeAppelQueryFilter
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
-      numeroTitreIsItalicEqualTo(bool value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'numeroTitreIsItalic',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
       numeroTitreStyleBoiteEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -1811,6 +2985,836 @@ extension ModalModeAppelQueryFilter
       ));
     });
   }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMAEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'positionAffichageServiceMA',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMAGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'positionAffichageServiceMA',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMALessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'positionAffichageServiceMA',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMABetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'positionAffichageServiceMA',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMAStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'positionAffichageServiceMA',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMAEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'positionAffichageServiceMA',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMAContains(String value,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'positionAffichageServiceMA',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMAMatches(String pattern,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'positionAffichageServiceMA',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMAIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'positionAffichageServiceMA',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      positionAffichageServiceMAIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'positionAffichageServiceMA',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAColorEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textListAppelMAColor',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAColorGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'textListAppelMAColor',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAColorLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'textListAppelMAColor',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAColorBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'textListAppelMAColor',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textListAppelMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'textListAppelMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'textListAppelMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'textListAppelMAfontAr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'textListAppelMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'textListAppelMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'textListAppelMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArMatches(String pattern,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'textListAppelMAfontAr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textListAppelMAfontAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontArIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'textListAppelMAfontAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textListAppelMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'textListAppelMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'textListAppelMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'textListAppelMAfontFr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'textListAppelMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'textListAppelMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'textListAppelMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrMatches(String pattern,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'textListAppelMAfontFr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textListAppelMAfontFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAfontFrIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'textListAppelMAfontFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textListAppelMAisBoldEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textListAppelMAisBold',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAColorEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textServiceBandeMAColor',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAColorGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'textServiceBandeMAColor',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAColorLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'textServiceBandeMAColor',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAColorBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'textServiceBandeMAColor',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textServiceBandeMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'textServiceBandeMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'textServiceBandeMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'textServiceBandeMAfontAr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'textServiceBandeMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'textServiceBandeMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArContains(String value,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'textServiceBandeMAfontAr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArMatches(String pattern,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'textServiceBandeMAfontAr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textServiceBandeMAfontAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontArIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'textServiceBandeMAfontAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textServiceBandeMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'textServiceBandeMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'textServiceBandeMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'textServiceBandeMAfontFr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'textServiceBandeMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'textServiceBandeMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrContains(String value,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'textServiceBandeMAfontFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrMatches(String pattern,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'textServiceBandeMAfontFr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textServiceBandeMAfontFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAfontFrIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'textServiceBandeMAfontFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      textServiceBandeMAisBoldEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'textServiceBandeMAisBold',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterFilterCondition>
+      visibleTextServiceBandeMAEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'visibleTextServiceBandeMA',
+        value: value,
+      ));
+    });
+  }
 }
 
 extension ModalModeAppelQueryObject
@@ -1821,6 +3825,76 @@ extension ModalModeAppelQueryLinks
 
 extension ModalModeAppelQuerySortBy
     on QueryBuilder<ModalModeAppel, ModalModeAppel, QSortBy> {
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByBoiteServiceBandeMAClignotment() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'boiteServiceBandeMAClignotment', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByBoiteServiceBandeMAClignotmentDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'boiteServiceBandeMAClignotment', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByBoiteServiceBandeMAFond() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'boiteServiceBandeMAFond', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByBoiteServiceBandeMAFondDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'boiteServiceBandeMAFond', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByColeurGuichetMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurGuichetMA', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByColeurGuichetMADesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurGuichetMA', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByColeurNumeroMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurNumeroMA', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByColeurNumeroMADesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurNumeroMA', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByFontNumeroSelected() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontNumeroSelected', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByFontNumeroSelectedDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontNumeroSelected', Sort.desc);
+    });
+  }
+
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
       sortByGuichetNumeroColorText() {
     return QueryBuilder.apply(this, (query) {
@@ -1874,20 +3948,6 @@ extension ModalModeAppelQuerySortBy
       sortByGuichetNumeroIsBoldDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'guichetNumeroIsBold', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      sortByGuichetNumeroIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'guichetNumeroIsItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      sortByGuichetNumeroIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'guichetNumeroIsItalic', Sort.desc);
     });
   }
 
@@ -1962,20 +4022,6 @@ extension ModalModeAppelQuerySortBy
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      sortByGuichetTitreIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'guichetTitreIsItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      sortByGuichetTitreIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'guichetTitreIsItalic', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
       sortByGuichetTitreStyleBoite() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'guichetTitreStyleBoite', Sort.asc);
@@ -2000,6 +4046,90 @@ extension ModalModeAppelQuerySortBy
       sortByIntervalleClignotmentDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'intervalleClignotment', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByIsListGuchetVisible() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isListGuchetVisible', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByIsListGuchetVisibleDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isListGuchetVisible', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByModeAppelSelected() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'modeAppelSelected', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByModeAppelSelectedDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'modeAppelSelected', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByNomGuichetAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomGuichetAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByNomGuichetArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomGuichetAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByNomGuichetFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomGuichetFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByNomGuichetFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomGuichetFr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByNomNumeroAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomNumeroAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByNomNumeroArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomNumeroAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByNomNumeroFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomNumeroFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByNomNumeroFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomNumeroFr', Sort.desc);
     });
   }
 
@@ -2056,20 +4186,6 @@ extension ModalModeAppelQuerySortBy
       sortByNumeroNumeroIsBoldDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'numeroNumeroIsBold', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      sortByNumeroNumeroIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'numeroNumeroIsItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      sortByNumeroNumeroIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'numeroNumeroIsItalic', Sort.desc);
     });
   }
 
@@ -2144,20 +4260,6 @@ extension ModalModeAppelQuerySortBy
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      sortByNumeroTitreIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'numeroTitreIsItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      sortByNumeroTitreIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'numeroTitreIsItalic', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
       sortByNumeroTitreStyleBoite() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'numeroTitreStyleBoite', Sort.asc);
@@ -2170,10 +4272,220 @@ extension ModalModeAppelQuerySortBy
       return query.addSortBy(r'numeroTitreStyleBoite', Sort.desc);
     });
   }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByPositionAffichageServiceMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'positionAffichageServiceMA', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByPositionAffichageServiceMADesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'positionAffichageServiceMA', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextListAppelMAColor() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAColor', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextListAppelMAColorDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAColor', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextListAppelMAfontAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAfontAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextListAppelMAfontArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAfontAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextListAppelMAfontFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAfontFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextListAppelMAfontFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAfontFr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextListAppelMAisBold() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAisBold', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextListAppelMAisBoldDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAisBold', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextServiceBandeMAColor() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAColor', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextServiceBandeMAColorDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAColor', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextServiceBandeMAfontAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAfontAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextServiceBandeMAfontArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAfontAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextServiceBandeMAfontFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAfontFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextServiceBandeMAfontFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAfontFr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextServiceBandeMAisBold() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAisBold', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByTextServiceBandeMAisBoldDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAisBold', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByVisibleTextServiceBandeMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'visibleTextServiceBandeMA', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      sortByVisibleTextServiceBandeMADesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'visibleTextServiceBandeMA', Sort.desc);
+    });
+  }
 }
 
 extension ModalModeAppelQuerySortThenBy
     on QueryBuilder<ModalModeAppel, ModalModeAppel, QSortThenBy> {
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByBoiteServiceBandeMAClignotment() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'boiteServiceBandeMAClignotment', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByBoiteServiceBandeMAClignotmentDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'boiteServiceBandeMAClignotment', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByBoiteServiceBandeMAFond() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'boiteServiceBandeMAFond', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByBoiteServiceBandeMAFondDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'boiteServiceBandeMAFond', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByColeurGuichetMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurGuichetMA', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByColeurGuichetMADesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurGuichetMA', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByColeurNumeroMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurNumeroMA', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByColeurNumeroMADesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurNumeroMA', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByFontNumeroSelected() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontNumeroSelected', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByFontNumeroSelectedDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontNumeroSelected', Sort.desc);
+    });
+  }
+
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
       thenByGuichetNumeroColorText() {
     return QueryBuilder.apply(this, (query) {
@@ -2227,20 +4539,6 @@ extension ModalModeAppelQuerySortThenBy
       thenByGuichetNumeroIsBoldDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'guichetNumeroIsBold', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      thenByGuichetNumeroIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'guichetNumeroIsItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      thenByGuichetNumeroIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'guichetNumeroIsItalic', Sort.desc);
     });
   }
 
@@ -2315,20 +4613,6 @@ extension ModalModeAppelQuerySortThenBy
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      thenByGuichetTitreIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'guichetTitreIsItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      thenByGuichetTitreIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'guichetTitreIsItalic', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
       thenByGuichetTitreStyleBoite() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'guichetTitreStyleBoite', Sort.asc);
@@ -2365,6 +4649,90 @@ extension ModalModeAppelQuerySortThenBy
       thenByIntervalleClignotmentDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'intervalleClignotment', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByIsListGuchetVisible() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isListGuchetVisible', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByIsListGuchetVisibleDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isListGuchetVisible', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByModeAppelSelected() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'modeAppelSelected', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByModeAppelSelectedDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'modeAppelSelected', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByNomGuichetAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomGuichetAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByNomGuichetArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomGuichetAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByNomGuichetFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomGuichetFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByNomGuichetFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomGuichetFr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByNomNumeroAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomNumeroAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByNomNumeroArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomNumeroAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByNomNumeroFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomNumeroFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByNomNumeroFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'nomNumeroFr', Sort.desc);
     });
   }
 
@@ -2421,20 +4789,6 @@ extension ModalModeAppelQuerySortThenBy
       thenByNumeroNumeroIsBoldDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'numeroNumeroIsBold', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      thenByNumeroNumeroIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'numeroNumeroIsItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      thenByNumeroNumeroIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'numeroNumeroIsItalic', Sort.desc);
     });
   }
 
@@ -2509,20 +4863,6 @@ extension ModalModeAppelQuerySortThenBy
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      thenByNumeroTitreIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'numeroTitreIsItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
-      thenByNumeroTitreIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'numeroTitreIsItalic', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
       thenByNumeroTitreStyleBoite() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'numeroTitreStyleBoite', Sort.asc);
@@ -2535,10 +4875,186 @@ extension ModalModeAppelQuerySortThenBy
       return query.addSortBy(r'numeroTitreStyleBoite', Sort.desc);
     });
   }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByPositionAffichageServiceMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'positionAffichageServiceMA', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByPositionAffichageServiceMADesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'positionAffichageServiceMA', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextListAppelMAColor() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAColor', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextListAppelMAColorDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAColor', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextListAppelMAfontAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAfontAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextListAppelMAfontArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAfontAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextListAppelMAfontFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAfontFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextListAppelMAfontFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAfontFr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextListAppelMAisBold() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAisBold', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextListAppelMAisBoldDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textListAppelMAisBold', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextServiceBandeMAColor() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAColor', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextServiceBandeMAColorDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAColor', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextServiceBandeMAfontAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAfontAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextServiceBandeMAfontArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAfontAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextServiceBandeMAfontFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAfontFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextServiceBandeMAfontFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAfontFr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextServiceBandeMAisBold() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAisBold', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByTextServiceBandeMAisBoldDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'textServiceBandeMAisBold', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByVisibleTextServiceBandeMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'visibleTextServiceBandeMA', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QAfterSortBy>
+      thenByVisibleTextServiceBandeMADesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'visibleTextServiceBandeMA', Sort.desc);
+    });
+  }
 }
 
 extension ModalModeAppelQueryWhereDistinct
     on QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct> {
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByBoiteServiceBandeMAClignotment() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'boiteServiceBandeMAClignotment');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByBoiteServiceBandeMAFond() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'boiteServiceBandeMAFond');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByColeurGuichetMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'coleurGuichetMA');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByColeurNumeroMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'coleurNumeroMA');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByFontNumeroSelected({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'fontNumeroSelected',
+          caseSensitive: caseSensitive);
+    });
+  }
+
   QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
       distinctByGuichetNumeroColorText() {
     return QueryBuilder.apply(this, (query) {
@@ -2564,13 +5080,6 @@ extension ModalModeAppelQueryWhereDistinct
       distinctByGuichetNumeroIsBold() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'guichetNumeroIsBold');
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
-      distinctByGuichetNumeroIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'guichetNumeroIsItalic');
     });
   }
 
@@ -2611,13 +5120,6 @@ extension ModalModeAppelQueryWhereDistinct
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
-      distinctByGuichetTitreIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'guichetTitreIsItalic');
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
       distinctByGuichetTitreStyleBoite({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'guichetTitreStyleBoite',
@@ -2629,6 +5131,49 @@ extension ModalModeAppelQueryWhereDistinct
       distinctByIntervalleClignotment() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'intervalleClignotment');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByIsListGuchetVisible() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isListGuchetVisible');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByModeAppelSelected({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'modeAppelSelected',
+          caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByNomGuichetAr({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'nomGuichetAr', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByNomGuichetFr({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'nomGuichetFr', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct> distinctByNomNumeroAr(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'nomNumeroAr', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct> distinctByNomNumeroFr(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'nomNumeroFr', caseSensitive: caseSensitive);
     });
   }
 
@@ -2657,13 +5202,6 @@ extension ModalModeAppelQueryWhereDistinct
       distinctByNumeroNumeroIsBold() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'numeroNumeroIsBold');
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
-      distinctByNumeroNumeroIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'numeroNumeroIsItalic');
     });
   }
 
@@ -2704,17 +5242,85 @@ extension ModalModeAppelQueryWhereDistinct
   }
 
   QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
-      distinctByNumeroTitreIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'numeroTitreIsItalic');
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
       distinctByNumeroTitreStyleBoite({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'numeroTitreStyleBoite',
           caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByPositionAffichageServiceMA({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'positionAffichageServiceMA',
+          caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByTextListAppelMAColor() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'textListAppelMAColor');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByTextListAppelMAfontAr({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'textListAppelMAfontAr',
+          caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByTextListAppelMAfontFr({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'textListAppelMAfontFr',
+          caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByTextListAppelMAisBold() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'textListAppelMAisBold');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByTextServiceBandeMAColor() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'textServiceBandeMAColor');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByTextServiceBandeMAfontAr({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'textServiceBandeMAfontAr',
+          caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByTextServiceBandeMAfontFr({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'textServiceBandeMAfontFr',
+          caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByTextServiceBandeMAisBold() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'textServiceBandeMAisBold');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, ModalModeAppel, QDistinct>
+      distinctByVisibleTextServiceBandeMA() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'visibleTextServiceBandeMA');
     });
   }
 }
@@ -2724,6 +5330,40 @@ extension ModalModeAppelQueryProperty
   QueryBuilder<ModalModeAppel, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, int, QQueryOperations>
+      boiteServiceBandeMAClignotmentProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'boiteServiceBandeMAClignotment');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, int, QQueryOperations>
+      boiteServiceBandeMAFondProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'boiteServiceBandeMAFond');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, int, QQueryOperations>
+      coleurGuichetMAProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'coleurGuichetMA');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, int, QQueryOperations> coleurNumeroMAProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'coleurNumeroMA');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      fontNumeroSelectedProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'fontNumeroSelected');
     });
   }
 
@@ -2752,13 +5392,6 @@ extension ModalModeAppelQueryProperty
       guichetNumeroIsBoldProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'guichetNumeroIsBold');
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, bool, QQueryOperations>
-      guichetNumeroIsItalicProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'guichetNumeroIsItalic');
     });
   }
 
@@ -2797,13 +5430,6 @@ extension ModalModeAppelQueryProperty
     });
   }
 
-  QueryBuilder<ModalModeAppel, bool, QQueryOperations>
-      guichetTitreIsItalicProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'guichetTitreIsItalic');
-    });
-  }
-
   QueryBuilder<ModalModeAppel, String, QQueryOperations>
       guichetTitreStyleBoiteProperty() {
     return QueryBuilder.apply(this, (query) {
@@ -2815,6 +5441,46 @@ extension ModalModeAppelQueryProperty
       intervalleClignotmentProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'intervalleClignotment');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, bool, QQueryOperations>
+      isListGuchetVisibleProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isListGuchetVisible');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      modeAppelSelectedProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'modeAppelSelected');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      nomGuichetArProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'nomGuichetAr');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      nomGuichetFrProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'nomGuichetFr');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations> nomNumeroArProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'nomNumeroAr');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations> nomNumeroFrProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'nomNumeroFr');
     });
   }
 
@@ -2843,13 +5509,6 @@ extension ModalModeAppelQueryProperty
       numeroNumeroIsBoldProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'numeroNumeroIsBold');
-    });
-  }
-
-  QueryBuilder<ModalModeAppel, bool, QQueryOperations>
-      numeroNumeroIsItalicProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'numeroNumeroIsItalic');
     });
   }
 
@@ -2888,17 +5547,80 @@ extension ModalModeAppelQueryProperty
     });
   }
 
-  QueryBuilder<ModalModeAppel, bool, QQueryOperations>
-      numeroTitreIsItalicProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'numeroTitreIsItalic');
-    });
-  }
-
   QueryBuilder<ModalModeAppel, String, QQueryOperations>
       numeroTitreStyleBoiteProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'numeroTitreStyleBoite');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      positionAffichageServiceMAProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'positionAffichageServiceMA');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, int, QQueryOperations>
+      textListAppelMAColorProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'textListAppelMAColor');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      textListAppelMAfontArProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'textListAppelMAfontAr');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      textListAppelMAfontFrProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'textListAppelMAfontFr');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, bool, QQueryOperations>
+      textListAppelMAisBoldProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'textListAppelMAisBold');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, int, QQueryOperations>
+      textServiceBandeMAColorProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'textServiceBandeMAColor');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      textServiceBandeMAfontArProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'textServiceBandeMAfontAr');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, String, QQueryOperations>
+      textServiceBandeMAfontFrProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'textServiceBandeMAfontFr');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, bool, QQueryOperations>
+      textServiceBandeMAisBoldProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'textServiceBandeMAisBold');
+    });
+  }
+
+  QueryBuilder<ModalModeAppel, bool, QQueryOperations>
+      visibleTextServiceBandeMAProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'visibleTextServiceBandeMA');
     });
   }
 }

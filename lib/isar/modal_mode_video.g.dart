@@ -17,53 +17,73 @@ const ModalModeVideoSchema = CollectionSchema(
   name: r'ModalModeVideo',
   id: 2492158116957034214,
   properties: {
-    r'colorText': PropertySchema(
+    r'coleurGuichetMV': PropertySchema(
       id: 0,
+      name: r'coleurGuichetMV',
+      type: IsarType.long,
+    ),
+    r'coleurNumeroMV': PropertySchema(
+      id: 1,
+      name: r'coleurNumeroMV',
+      type: IsarType.long,
+    ),
+    r'colorText': PropertySchema(
+      id: 2,
       name: r'colorText',
       type: IsarType.long,
     ),
     r'durerImage': PropertySchema(
-      id: 1,
+      id: 3,
       name: r'durerImage',
       type: IsarType.long,
     ),
+    r'fontArabServiceMV': PropertySchema(
+      id: 4,
+      name: r'fontArabServiceMV',
+      type: IsarType.string,
+    ),
+    r'fontFrancaisServiceMV': PropertySchema(
+      id: 5,
+      name: r'fontFrancaisServiceMV',
+      type: IsarType.string,
+    ),
+    r'isBandeNumeroVisible': PropertySchema(
+      id: 6,
+      name: r'isBandeNumeroVisible',
+      type: IsarType.bool,
+    ),
     r'isBold': PropertySchema(
-      id: 2,
+      id: 7,
       name: r'isBold',
       type: IsarType.bool,
     ),
-    r'isItalic': PropertySchema(
-      id: 3,
-      name: r'isItalic',
-      type: IsarType.bool,
-    ),
     r'isResteVisible': PropertySchema(
-      id: 4,
+      id: 8,
       name: r'isResteVisible',
       type: IsarType.bool,
     ),
     r'isServiceVisible': PropertySchema(
-      id: 5,
+      id: 9,
       name: r'isServiceVisible',
       type: IsarType.bool,
     ),
     r'listMedia': PropertySchema(
-      id: 6,
+      id: 10,
       name: r'listMedia',
       type: IsarType.stringList,
     ),
     r'modeAffichageMultimedia': PropertySchema(
-      id: 7,
+      id: 11,
       name: r'modeAffichageMultimedia',
       type: IsarType.string,
     ),
     r'positionAffichageService': PropertySchema(
-      id: 8,
+      id: 12,
       name: r'positionAffichageService',
       type: IsarType.string,
     ),
     r'volume': PropertySchema(
-      id: 9,
+      id: 13,
       name: r'volume',
       type: IsarType.string,
     )
@@ -95,6 +115,8 @@ int _modalModeVideoEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
+  bytesCount += 3 + object.fontArabServiceMV.length * 3;
+  bytesCount += 3 + object.fontFrancaisServiceMV.length * 3;
   bytesCount += 3 + object.listMedia.length * 3;
   {
     for (var i = 0; i < object.listMedia.length; i++) {
@@ -114,16 +136,20 @@ void _modalModeVideoSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeLong(offsets[0], object.colorText);
-  writer.writeLong(offsets[1], object.durerImage);
-  writer.writeBool(offsets[2], object.isBold);
-  writer.writeBool(offsets[3], object.isItalic);
-  writer.writeBool(offsets[4], object.isResteVisible);
-  writer.writeBool(offsets[5], object.isServiceVisible);
-  writer.writeStringList(offsets[6], object.listMedia);
-  writer.writeString(offsets[7], object.modeAffichageMultimedia);
-  writer.writeString(offsets[8], object.positionAffichageService);
-  writer.writeString(offsets[9], object.volume);
+  writer.writeLong(offsets[0], object.coleurGuichetMV);
+  writer.writeLong(offsets[1], object.coleurNumeroMV);
+  writer.writeLong(offsets[2], object.colorText);
+  writer.writeLong(offsets[3], object.durerImage);
+  writer.writeString(offsets[4], object.fontArabServiceMV);
+  writer.writeString(offsets[5], object.fontFrancaisServiceMV);
+  writer.writeBool(offsets[6], object.isBandeNumeroVisible);
+  writer.writeBool(offsets[7], object.isBold);
+  writer.writeBool(offsets[8], object.isResteVisible);
+  writer.writeBool(offsets[9], object.isServiceVisible);
+  writer.writeStringList(offsets[10], object.listMedia);
+  writer.writeString(offsets[11], object.modeAffichageMultimedia);
+  writer.writeString(offsets[12], object.positionAffichageService);
+  writer.writeString(offsets[13], object.volume);
 }
 
 ModalModeVideo _modalModeVideoDeserialize(
@@ -133,16 +159,20 @@ ModalModeVideo _modalModeVideoDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = ModalModeVideo(
-    colorText: reader.readLong(offsets[0]),
-    durerImage: reader.readLong(offsets[1]),
-    isBold: reader.readBool(offsets[2]),
-    isItalic: reader.readBool(offsets[3]),
-    isResteVisible: reader.readBool(offsets[4]),
-    isServiceVisible: reader.readBool(offsets[5]),
-    listMedia: reader.readStringList(offsets[6]) ?? [],
-    modeAffichageMultimedia: reader.readString(offsets[7]),
-    positionAffichageService: reader.readString(offsets[8]),
-    volume: reader.readString(offsets[9]),
+    coleurGuichetMV: reader.readLong(offsets[0]),
+    coleurNumeroMV: reader.readLong(offsets[1]),
+    colorText: reader.readLong(offsets[2]),
+    durerImage: reader.readLong(offsets[3]),
+    fontArabServiceMV: reader.readString(offsets[4]),
+    fontFrancaisServiceMV: reader.readString(offsets[5]),
+    isBandeNumeroVisible: reader.readBool(offsets[6]),
+    isBold: reader.readBool(offsets[7]),
+    isResteVisible: reader.readBool(offsets[8]),
+    isServiceVisible: reader.readBool(offsets[9]),
+    listMedia: reader.readStringList(offsets[10]) ?? [],
+    modeAffichageMultimedia: reader.readString(offsets[11]),
+    positionAffichageService: reader.readString(offsets[12]),
+    volume: reader.readString(offsets[13]),
   );
   object.id = id;
   return object;
@@ -160,20 +190,28 @@ P _modalModeVideoDeserializeProp<P>(
     case 1:
       return (reader.readLong(offset)) as P;
     case 2:
-      return (reader.readBool(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 3:
-      return (reader.readBool(offset)) as P;
+      return (reader.readLong(offset)) as P;
     case 4:
-      return (reader.readBool(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 5:
-      return (reader.readBool(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 6:
-      return (reader.readStringList(offset) ?? []) as P;
+      return (reader.readBool(offset)) as P;
     case 7:
-      return (reader.readString(offset)) as P;
+      return (reader.readBool(offset)) as P;
     case 8:
-      return (reader.readString(offset)) as P;
+      return (reader.readBool(offset)) as P;
     case 9:
+      return (reader.readBool(offset)) as P;
+    case 10:
+      return (reader.readStringList(offset) ?? []) as P;
+    case 11:
+      return (reader.readString(offset)) as P;
+    case 12:
+      return (reader.readString(offset)) as P;
+    case 13:
       return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -278,6 +316,118 @@ extension ModalModeVideoQueryWhere
 
 extension ModalModeVideoQueryFilter
     on QueryBuilder<ModalModeVideo, ModalModeVideo, QFilterCondition> {
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      coleurGuichetMVEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'coleurGuichetMV',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      coleurGuichetMVGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'coleurGuichetMV',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      coleurGuichetMVLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'coleurGuichetMV',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      coleurGuichetMVBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'coleurGuichetMV',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      coleurNumeroMVEqualTo(int value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'coleurNumeroMV',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      coleurNumeroMVGreaterThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'coleurNumeroMV',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      coleurNumeroMVLessThan(
+    int value, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'coleurNumeroMV',
+        value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      coleurNumeroMVBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'coleurNumeroMV',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+      ));
+    });
+  }
+
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
       colorTextEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
@@ -390,6 +540,279 @@ extension ModalModeVideoQueryFilter
     });
   }
 
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'fontArabServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'fontArabServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'fontArabServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'fontArabServiceMV',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'fontArabServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'fontArabServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'fontArabServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'fontArabServiceMV',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'fontArabServiceMV',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontArabServiceMVIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'fontArabServiceMV',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'fontFrancaisServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'fontFrancaisServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'fontFrancaisServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'fontFrancaisServiceMV',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'fontFrancaisServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'fontFrancaisServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'fontFrancaisServiceMV',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVMatches(String pattern,
+          {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'fontFrancaisServiceMV',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'fontFrancaisServiceMV',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
+      fontFrancaisServiceMVIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'fontFrancaisServiceMV',
+        value: '',
+      ));
+    });
+  }
+
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition> idEqualTo(
       Id value) {
     return QueryBuilder.apply(this, (query) {
@@ -446,20 +869,20 @@ extension ModalModeVideoQueryFilter
   }
 
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
-      isBoldEqualTo(bool value) {
+      isBandeNumeroVisibleEqualTo(bool value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'isBold',
+        property: r'isBandeNumeroVisible',
         value: value,
       ));
     });
   }
 
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterFilterCondition>
-      isItalicEqualTo(bool value) {
+      isBoldEqualTo(bool value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'isItalic',
+        property: r'isBold',
         value: value,
       ));
     });
@@ -1192,6 +1615,34 @@ extension ModalModeVideoQueryLinks
 
 extension ModalModeVideoQuerySortBy
     on QueryBuilder<ModalModeVideo, ModalModeVideo, QSortBy> {
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByColeurGuichetMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurGuichetMV', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByColeurGuichetMVDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurGuichetMV', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByColeurNumeroMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurNumeroMV', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByColeurNumeroMVDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurNumeroMV', Sort.desc);
+    });
+  }
+
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy> sortByColorText() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'colorText', Sort.asc);
@@ -1219,6 +1670,48 @@ extension ModalModeVideoQuerySortBy
     });
   }
 
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByFontArabServiceMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontArabServiceMV', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByFontArabServiceMVDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontArabServiceMV', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByFontFrancaisServiceMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontFrancaisServiceMV', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByFontFrancaisServiceMVDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontFrancaisServiceMV', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByIsBandeNumeroVisible() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isBandeNumeroVisible', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      sortByIsBandeNumeroVisibleDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isBandeNumeroVisible', Sort.desc);
+    });
+  }
+
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy> sortByIsBold() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isBold', Sort.asc);
@@ -1229,19 +1722,6 @@ extension ModalModeVideoQuerySortBy
       sortByIsBoldDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isBold', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy> sortByIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
-      sortByIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalic', Sort.desc);
     });
   }
 
@@ -1317,6 +1797,34 @@ extension ModalModeVideoQuerySortBy
 
 extension ModalModeVideoQuerySortThenBy
     on QueryBuilder<ModalModeVideo, ModalModeVideo, QSortThenBy> {
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByColeurGuichetMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurGuichetMV', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByColeurGuichetMVDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurGuichetMV', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByColeurNumeroMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurNumeroMV', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByColeurNumeroMVDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'coleurNumeroMV', Sort.desc);
+    });
+  }
+
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy> thenByColorText() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'colorText', Sort.asc);
@@ -1344,6 +1852,34 @@ extension ModalModeVideoQuerySortThenBy
     });
   }
 
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByFontArabServiceMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontArabServiceMV', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByFontArabServiceMVDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontArabServiceMV', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByFontFrancaisServiceMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontFrancaisServiceMV', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByFontFrancaisServiceMVDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'fontFrancaisServiceMV', Sort.desc);
+    });
+  }
+
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -1353,6 +1889,20 @@ extension ModalModeVideoQuerySortThenBy
   QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByIsBandeNumeroVisible() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isBandeNumeroVisible', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
+      thenByIsBandeNumeroVisibleDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isBandeNumeroVisible', Sort.desc);
     });
   }
 
@@ -1366,19 +1916,6 @@ extension ModalModeVideoQuerySortThenBy
       thenByIsBoldDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isBold', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy> thenByIsItalic() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalic', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalModeVideo, ModalModeVideo, QAfterSortBy>
-      thenByIsItalicDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalic', Sort.desc);
     });
   }
 
@@ -1455,6 +1992,20 @@ extension ModalModeVideoQuerySortThenBy
 extension ModalModeVideoQueryWhereDistinct
     on QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct> {
   QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct>
+      distinctByColeurGuichetMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'coleurGuichetMV');
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct>
+      distinctByColeurNumeroMV() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'coleurNumeroMV');
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct>
       distinctByColorText() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'colorText');
@@ -1468,15 +2019,32 @@ extension ModalModeVideoQueryWhereDistinct
     });
   }
 
-  QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct> distinctByIsBold() {
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct>
+      distinctByFontArabServiceMV({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'isBold');
+      return query.addDistinctBy(r'fontArabServiceMV',
+          caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct> distinctByIsItalic() {
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct>
+      distinctByFontFrancaisServiceMV({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'isItalic');
+      return query.addDistinctBy(r'fontFrancaisServiceMV',
+          caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct>
+      distinctByIsBandeNumeroVisible() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isBandeNumeroVisible');
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, ModalModeVideo, QDistinct> distinctByIsBold() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isBold');
     });
   }
 
@@ -1533,6 +2101,19 @@ extension ModalModeVideoQueryProperty
     });
   }
 
+  QueryBuilder<ModalModeVideo, int, QQueryOperations>
+      coleurGuichetMVProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'coleurGuichetMV');
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, int, QQueryOperations> coleurNumeroMVProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'coleurNumeroMV');
+    });
+  }
+
   QueryBuilder<ModalModeVideo, int, QQueryOperations> colorTextProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'colorText');
@@ -1545,15 +2126,30 @@ extension ModalModeVideoQueryProperty
     });
   }
 
-  QueryBuilder<ModalModeVideo, bool, QQueryOperations> isBoldProperty() {
+  QueryBuilder<ModalModeVideo, String, QQueryOperations>
+      fontArabServiceMVProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'isBold');
+      return query.addPropertyName(r'fontArabServiceMV');
     });
   }
 
-  QueryBuilder<ModalModeVideo, bool, QQueryOperations> isItalicProperty() {
+  QueryBuilder<ModalModeVideo, String, QQueryOperations>
+      fontFrancaisServiceMVProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'isItalic');
+      return query.addPropertyName(r'fontFrancaisServiceMV');
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, bool, QQueryOperations>
+      isBandeNumeroVisibleProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isBandeNumeroVisible');
+    });
+  }
+
+  QueryBuilder<ModalModeVideo, bool, QQueryOperations> isBoldProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isBold');
     });
   }
 
@@ -1610,19 +2206,34 @@ const ModalServiceEcranSchema = CollectionSchema(
   name: r'ModalServiceEcran',
   id: 7465933031142721967,
   properties: {
-    r'indexService': PropertySchema(
+    r'appeler': PropertySchema(
       id: 0,
-      name: r'indexService',
-      type: IsarType.int,
-    ),
-    r'nomArab': PropertySchema(
-      id: 1,
-      name: r'nomArab',
+      name: r'appeler',
       type: IsarType.string,
     ),
-    r'nomFrancais': PropertySchema(
+    r'guichet': PropertySchema(
+      id: 1,
+      name: r'guichet',
+      type: IsarType.string,
+    ),
+    r'index': PropertySchema(
       id: 2,
-      name: r'nomFrancais',
+      name: r'index',
+      type: IsarType.long,
+    ),
+    r'reste': PropertySchema(
+      id: 3,
+      name: r'reste',
+      type: IsarType.string,
+    ),
+    r'serviceAr': PropertySchema(
+      id: 4,
+      name: r'serviceAr',
+      type: IsarType.string,
+    ),
+    r'serviceFr': PropertySchema(
+      id: 5,
+      name: r'serviceFr',
       type: IsarType.string,
     )
   },
@@ -1646,8 +2257,11 @@ int _modalServiceEcranEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
-  bytesCount += 3 + object.nomArab.length * 3;
-  bytesCount += 3 + object.nomFrancais.length * 3;
+  bytesCount += 3 + object.appeler.length * 3;
+  bytesCount += 3 + object.guichet.length * 3;
+  bytesCount += 3 + object.reste.length * 3;
+  bytesCount += 3 + object.serviceAr.length * 3;
+  bytesCount += 3 + object.serviceFr.length * 3;
   return bytesCount;
 }
 
@@ -1657,9 +2271,12 @@ void _modalServiceEcranSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeInt(offsets[0], object.indexService);
-  writer.writeString(offsets[1], object.nomArab);
-  writer.writeString(offsets[2], object.nomFrancais);
+  writer.writeString(offsets[0], object.appeler);
+  writer.writeString(offsets[1], object.guichet);
+  writer.writeLong(offsets[2], object.index);
+  writer.writeString(offsets[3], object.reste);
+  writer.writeString(offsets[4], object.serviceAr);
+  writer.writeString(offsets[5], object.serviceFr);
 }
 
 ModalServiceEcran _modalServiceEcranDeserialize(
@@ -1669,9 +2286,12 @@ ModalServiceEcran _modalServiceEcranDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = ModalServiceEcran(
-    indexService: reader.readInt(offsets[0]),
-    nomArab: reader.readString(offsets[1]),
-    nomFrancais: reader.readString(offsets[2]),
+    appeler: reader.readString(offsets[0]),
+    guichet: reader.readString(offsets[1]),
+    index: reader.readLong(offsets[2]),
+    reste: reader.readString(offsets[3]),
+    serviceAr: reader.readString(offsets[4]),
+    serviceFr: reader.readString(offsets[5]),
   );
   object.id = id;
   return object;
@@ -1685,10 +2305,16 @@ P _modalServiceEcranDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (reader.readInt(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 1:
       return (reader.readString(offset)) as P;
     case 2:
+      return (reader.readLong(offset)) as P;
+    case 3:
+      return (reader.readString(offset)) as P;
+    case 4:
+      return (reader.readString(offset)) as P;
+    case 5:
       return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -1792,6 +2418,278 @@ extension ModalServiceEcranQueryWhere
 extension ModalServiceEcranQueryFilter
     on QueryBuilder<ModalServiceEcran, ModalServiceEcran, QFilterCondition> {
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'appeler',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'appeler',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'appeler',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'appeler',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'appeler',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'appeler',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'appeler',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'appeler',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'appeler',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      appelerIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'appeler',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'guichet',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'guichet',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'guichet',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'guichet',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'guichet',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'guichet',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'guichet',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'guichet',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'guichet',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      guichetIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'guichet',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
       idEqualTo(Id value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
@@ -1848,45 +2746,45 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      indexServiceEqualTo(int value) {
+      indexEqualTo(int value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'indexService',
+        property: r'index',
         value: value,
       ));
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      indexServiceGreaterThan(
+      indexGreaterThan(
     int value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'indexService',
+        property: r'index',
         value: value,
       ));
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      indexServiceLessThan(
+      indexLessThan(
     int value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'indexService',
+        property: r'index',
         value: value,
       ));
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      indexServiceBetween(
+      indexBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -1894,7 +2792,7 @@ extension ModalServiceEcranQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'indexService',
+        property: r'index',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -1904,13 +2802,13 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabEqualTo(
+      resteEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'nomArab',
+        property: r'reste',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -1918,7 +2816,7 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabGreaterThan(
+      resteGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -1926,7 +2824,7 @@ extension ModalServiceEcranQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'nomArab',
+        property: r'reste',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -1934,7 +2832,7 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabLessThan(
+      resteLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -1942,7 +2840,7 @@ extension ModalServiceEcranQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'nomArab',
+        property: r'reste',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -1950,7 +2848,7 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabBetween(
+      resteBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -1959,7 +2857,7 @@ extension ModalServiceEcranQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'nomArab',
+        property: r'reste',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -1970,13 +2868,13 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabStartsWith(
+      resteStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'nomArab',
+        property: r'reste',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -1984,13 +2882,13 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabEndsWith(
+      resteEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'nomArab',
+        property: r'reste',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -1998,10 +2896,10 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabContains(String value, {bool caseSensitive = true}) {
+      resteContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
-        property: r'nomArab',
+        property: r'reste',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -2009,10 +2907,10 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabMatches(String pattern, {bool caseSensitive = true}) {
+      resteMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
-        property: r'nomArab',
+        property: r'reste',
         wildcard: pattern,
         caseSensitive: caseSensitive,
       ));
@@ -2020,33 +2918,33 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabIsEmpty() {
+      resteIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'nomArab',
+        property: r'reste',
         value: '',
       ));
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomArabIsNotEmpty() {
+      resteIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'nomArab',
+        property: r'reste',
         value: '',
       ));
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisEqualTo(
+      serviceArEqualTo(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'nomFrancais',
+        property: r'serviceAr',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -2054,7 +2952,7 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisGreaterThan(
+      serviceArGreaterThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -2062,7 +2960,7 @@ extension ModalServiceEcranQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'nomFrancais',
+        property: r'serviceAr',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -2070,7 +2968,7 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisLessThan(
+      serviceArLessThan(
     String value, {
     bool include = false,
     bool caseSensitive = true,
@@ -2078,7 +2976,7 @@ extension ModalServiceEcranQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'nomFrancais',
+        property: r'serviceAr',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -2086,7 +2984,7 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisBetween(
+      serviceArBetween(
     String lower,
     String upper, {
     bool includeLower = true,
@@ -2095,7 +2993,7 @@ extension ModalServiceEcranQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'nomFrancais',
+        property: r'serviceAr',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -2106,13 +3004,13 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisStartsWith(
+      serviceArStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'nomFrancais',
+        property: r'serviceAr',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -2120,13 +3018,13 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisEndsWith(
+      serviceArEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'nomFrancais',
+        property: r'serviceAr',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -2134,10 +3032,10 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisContains(String value, {bool caseSensitive = true}) {
+      serviceArContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
-        property: r'nomFrancais',
+        property: r'serviceAr',
         value: value,
         caseSensitive: caseSensitive,
       ));
@@ -2145,10 +3043,10 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisMatches(String pattern, {bool caseSensitive = true}) {
+      serviceArMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
-        property: r'nomFrancais',
+        property: r'serviceAr',
         wildcard: pattern,
         caseSensitive: caseSensitive,
       ));
@@ -2156,20 +3054,156 @@ extension ModalServiceEcranQueryFilter
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisIsEmpty() {
+      serviceArIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'nomFrancais',
+        property: r'serviceAr',
         value: '',
       ));
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
-      nomFrancaisIsNotEmpty() {
+      serviceArIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'nomFrancais',
+        property: r'serviceAr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'serviceFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'serviceFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'serviceFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'serviceFr',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'serviceFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'serviceFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'serviceFr',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrMatches(String pattern, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'serviceFr',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'serviceFr',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterFilterCondition>
+      serviceFrIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'serviceFr',
         value: '',
       ));
     });
@@ -2185,50 +3219,120 @@ extension ModalServiceEcranQueryLinks
 extension ModalServiceEcranQuerySortBy
     on QueryBuilder<ModalServiceEcran, ModalServiceEcran, QSortBy> {
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      sortByIndexService() {
+      sortByAppeler() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'indexService', Sort.asc);
+      return query.addSortBy(r'appeler', Sort.asc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      sortByIndexServiceDesc() {
+      sortByAppelerDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'indexService', Sort.desc);
+      return query.addSortBy(r'appeler', Sort.desc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      sortByNomArab() {
+      sortByGuichet() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'nomArab', Sort.asc);
+      return query.addSortBy(r'guichet', Sort.asc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      sortByNomArabDesc() {
+      sortByGuichetDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'nomArab', Sort.desc);
+      return query.addSortBy(r'guichet', Sort.desc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      sortByNomFrancais() {
+      sortByIndex() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'nomFrancais', Sort.asc);
+      return query.addSortBy(r'index', Sort.asc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      sortByNomFrancaisDesc() {
+      sortByIndexDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'nomFrancais', Sort.desc);
+      return query.addSortBy(r'index', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      sortByReste() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'reste', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      sortByResteDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'reste', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      sortByServiceAr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'serviceAr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      sortByServiceArDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'serviceAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      sortByServiceFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'serviceFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      sortByServiceFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'serviceFr', Sort.desc);
     });
   }
 }
 
 extension ModalServiceEcranQuerySortThenBy
     on QueryBuilder<ModalServiceEcran, ModalServiceEcran, QSortThenBy> {
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      thenByAppeler() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'appeler', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      thenByAppelerDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'appeler', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      thenByGuichet() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'guichet', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      thenByGuichetDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'guichet', Sort.desc);
+    });
+  }
+
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -2243,44 +3347,58 @@ extension ModalServiceEcranQuerySortThenBy
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      thenByIndexService() {
+      thenByIndex() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'indexService', Sort.asc);
+      return query.addSortBy(r'index', Sort.asc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      thenByIndexServiceDesc() {
+      thenByIndexDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'indexService', Sort.desc);
+      return query.addSortBy(r'index', Sort.desc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      thenByNomArab() {
+      thenByReste() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'nomArab', Sort.asc);
+      return query.addSortBy(r'reste', Sort.asc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      thenByNomArabDesc() {
+      thenByResteDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'nomArab', Sort.desc);
+      return query.addSortBy(r'reste', Sort.desc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      thenByNomFrancais() {
+      thenByServiceAr() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'nomFrancais', Sort.asc);
+      return query.addSortBy(r'serviceAr', Sort.asc);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
-      thenByNomFrancaisDesc() {
+      thenByServiceArDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'nomFrancais', Sort.desc);
+      return query.addSortBy(r'serviceAr', Sort.desc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      thenByServiceFr() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'serviceFr', Sort.asc);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QAfterSortBy>
+      thenByServiceFrDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'serviceFr', Sort.desc);
     });
   }
 }
@@ -2288,23 +3406,44 @@ extension ModalServiceEcranQuerySortThenBy
 extension ModalServiceEcranQueryWhereDistinct
     on QueryBuilder<ModalServiceEcran, ModalServiceEcran, QDistinct> {
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QDistinct>
-      distinctByIndexService() {
+      distinctByAppeler({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'indexService');
+      return query.addDistinctBy(r'appeler', caseSensitive: caseSensitive);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QDistinct>
-      distinctByNomArab({bool caseSensitive = true}) {
+      distinctByGuichet({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'nomArab', caseSensitive: caseSensitive);
+      return query.addDistinctBy(r'guichet', caseSensitive: caseSensitive);
     });
   }
 
   QueryBuilder<ModalServiceEcran, ModalServiceEcran, QDistinct>
-      distinctByNomFrancais({bool caseSensitive = true}) {
+      distinctByIndex() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'nomFrancais', caseSensitive: caseSensitive);
+      return query.addDistinctBy(r'index');
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QDistinct> distinctByReste(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'reste', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QDistinct>
+      distinctByServiceAr({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'serviceAr', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, ModalServiceEcran, QDistinct>
+      distinctByServiceFr({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'serviceFr', caseSensitive: caseSensitive);
     });
   }
 }
@@ -2317,23 +3456,41 @@ extension ModalServiceEcranQueryProperty
     });
   }
 
-  QueryBuilder<ModalServiceEcran, int, QQueryOperations>
-      indexServiceProperty() {
+  QueryBuilder<ModalServiceEcran, String, QQueryOperations> appelerProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'indexService');
+      return query.addPropertyName(r'appeler');
     });
   }
 
-  QueryBuilder<ModalServiceEcran, String, QQueryOperations> nomArabProperty() {
+  QueryBuilder<ModalServiceEcran, String, QQueryOperations> guichetProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'nomArab');
+      return query.addPropertyName(r'guichet');
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, int, QQueryOperations> indexProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'index');
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, String, QQueryOperations> resteProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'reste');
     });
   }
 
   QueryBuilder<ModalServiceEcran, String, QQueryOperations>
-      nomFrancaisProperty() {
+      serviceArProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'nomFrancais');
+      return query.addPropertyName(r'serviceAr');
+    });
+  }
+
+  QueryBuilder<ModalServiceEcran, String, QQueryOperations>
+      serviceFrProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'serviceFr');
     });
   }
 }

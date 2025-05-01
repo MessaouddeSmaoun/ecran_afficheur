@@ -1,12 +1,13 @@
 import 'dart:ui';
 
 interface class ModalText {
-  ModalText({required this.titre, required this.font, required this.colorText, required this.isBold, required this.isItalic,});
+  ModalText({required this.titre, required this.fontFr, required this.fontAr, required this.colorText, required this.isBold,});
 
   String titre;
-  String font;
+  String fontFr;
   Color colorText;
   bool isBold;
-  bool isItalic;
+  String fontAr;
+
 
 }

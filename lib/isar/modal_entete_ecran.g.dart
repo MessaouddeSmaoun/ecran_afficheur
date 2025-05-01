@@ -111,16 +111,6 @@ const ModalEnteteEcranSchema = CollectionSchema(
       id: 18,
       name: r'isIconRight',
       type: IsarType.bool,
-    ),
-    r'isItalicArab': PropertySchema(
-      id: 19,
-      name: r'isItalicArab',
-      type: IsarType.bool,
-    ),
-    r'isItalicFrancais': PropertySchema(
-      id: 20,
-      name: r'isItalicFrancais',
-      type: IsarType.bool,
     )
   },
   estimateSize: _modalEnteteEcranEstimateSize,
@@ -175,8 +165,6 @@ void _modalEnteteEcranSerialize(
   writer.writeBool(offsets[16], object.isFrancais);
   writer.writeBool(offsets[17], object.isIconLeft);
   writer.writeBool(offsets[18], object.isIconRight);
-  writer.writeBool(offsets[19], object.isItalicArab);
-  writer.writeBool(offsets[20], object.isItalicFrancais);
 }
 
 ModalEnteteEcran _modalEnteteEcranDeserialize(
@@ -205,8 +193,6 @@ ModalEnteteEcran _modalEnteteEcranDeserialize(
     isFrancais: reader.readBool(offsets[16]),
     isIconLeft: reader.readBool(offsets[17]),
     isIconRight: reader.readBool(offsets[18]),
-    isItalicArab: reader.readBool(offsets[19]),
-    isItalicFrancais: reader.readBool(offsets[20]),
   );
   object.id = id;
   return object;
@@ -256,10 +242,6 @@ P _modalEnteteEcranDeserializeProp<P>(
     case 17:
       return (reader.readBool(offset)) as P;
     case 18:
-      return (reader.readBool(offset)) as P;
-    case 19:
-      return (reader.readBool(offset)) as P;
-    case 20:
       return (reader.readBool(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -1431,26 +1413,6 @@ extension ModalEnteteEcranQueryFilter
       ));
     });
   }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterFilterCondition>
-      isItalicArabEqualTo(bool value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'isItalicArab',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterFilterCondition>
-      isItalicFrancaisEqualTo(bool value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'isItalicFrancais',
-        value: value,
-      ));
-    });
-  }
 }
 
 extension ModalEnteteEcranQueryObject
@@ -1724,34 +1686,6 @@ extension ModalEnteteEcranQuerySortBy
       sortByIsIconRightDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'isIconRight', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterSortBy>
-      sortByIsItalicArab() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalicArab', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterSortBy>
-      sortByIsItalicArabDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalicArab', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterSortBy>
-      sortByIsItalicFrancais() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalicFrancais', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterSortBy>
-      sortByIsItalicFrancaisDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalicFrancais', Sort.desc);
     });
   }
 }
@@ -2036,34 +1970,6 @@ extension ModalEnteteEcranQuerySortThenBy
       return query.addSortBy(r'isIconRight', Sort.desc);
     });
   }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterSortBy>
-      thenByIsItalicArab() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalicArab', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterSortBy>
-      thenByIsItalicArabDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalicArab', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterSortBy>
-      thenByIsItalicFrancais() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalicFrancais', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QAfterSortBy>
-      thenByIsItalicFrancaisDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'isItalicFrancais', Sort.desc);
-    });
-  }
 }
 
 extension ModalEnteteEcranQueryWhereDistinct
@@ -2201,20 +2107,6 @@ extension ModalEnteteEcranQueryWhereDistinct
       return query.addDistinctBy(r'isIconRight');
     });
   }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QDistinct>
-      distinctByIsItalicArab() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'isItalicArab');
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, ModalEnteteEcran, QDistinct>
-      distinctByIsItalicFrancais() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'isItalicFrancais');
-    });
-  }
 }
 
 extension ModalEnteteEcranQueryProperty
@@ -2345,20 +2237,6 @@ extension ModalEnteteEcranQueryProperty
   QueryBuilder<ModalEnteteEcran, bool, QQueryOperations> isIconRightProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'isIconRight');
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, bool, QQueryOperations>
-      isItalicArabProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'isItalicArab');
-    });
-  }
-
-  QueryBuilder<ModalEnteteEcran, bool, QQueryOperations>
-      isItalicFrancaisProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'isItalicFrancais');
     });
   }
 }

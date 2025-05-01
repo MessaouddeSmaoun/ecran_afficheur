@@ -14,17 +14,17 @@ late DataIsar miseAjour;
 
 ModalText titreFr = ModalText(
     titre: 'titre tv en francais',
-    font: '',
+    fontFr: 'Amiri',
+    fontAr: 'Amiri',
     colorText: Colors.black,
-    isBold: true,
-    isItalic: false);
+    isBold: true);
 
 ModalText titreAr = ModalText(
     titre: 'عنوان تلفاز بالعربية',
-    font: '',
+    fontFr: 'Amiri',
+    fontAr: 'Amiri',
     colorText: Colors.black,
-    isBold: true,
-    isItalic: false);
+    isBold: true);
 
 
 int delayChange =5 ;
@@ -39,11 +39,39 @@ int indexMedia = 0;
 late int durerImage;
 
 
- late Player player;
+late Player player;
+late Player playerNumber;
 late AudioPlayer playerSound;
 bool isSound = false;
 late final VideoController controller;
 
 Timer? timerHorloge;
- bool langueArabDisp = true;
- bool langueFrancaisDisp = true;
+bool isFinish = false;
+bool isAppelNum = false;
+int numPlay = 0;
+int numPlayList = 0;
+int numPlayCurrent = 0;
+int CurrentIndexPlayer = 0;
+
+Playlist listPlayVoice = Playlist([]);
+
+
+List<String> listItemGuichetFr = <String>[
+  'guichet',
+  'bureau',
+];
+
+List<String> listItemGuichetAr = <String>[
+  'شباك',
+  'مكتب',
+];
+
+List<String> listItemNumeroFr = <String>[
+  'numero',
+  'ticket',
+];
+
+List<String> listItemNumeroAr = <String>[
+  'رقم',
+  'تذكرة',
+];

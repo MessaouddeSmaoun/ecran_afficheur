@@ -3,7 +3,6 @@ import 'package:ecran_afficheur/mode_appel/state_mode_appel.dart';
 import 'package:ecran_afficheur/mode_appel/template_numero.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../main.dart';
 import '../modal/modal_boite.dart';
 import '../modal/modal_text.dart';
 import '../principal_page.dart';
@@ -46,6 +45,7 @@ void didChangeDependencies() {
           const EnteteEcanWidget(),
           const SizedBox(height: 10,),
           const DateTimeWidget(),
+
           const Expanded(
               flex: 1,
               child: SizedBox()),

@@ -40,7 +40,7 @@ class IsarFunction {
   Future<DataIsar> getListUpdate(WidgetRef ref) async {
     final isar = await db;
     late DataIsar result;
-    final dataStore = await isar.dataIsars.where().findFirst();
+final dataStore = await isar.dataIsars.where().findFirst();
     if (dataStore == null) {
       ref.read(isConfig.notifier).state = false;
       result =
@@ -58,6 +58,7 @@ class IsarFunction {
     debugPrint('ecranModeAppel ${result.ecranModeAppel}');
     debugPrint('ecranModeVideo ${result.ecranModeVideo}');
     debugPrint('ecranEnteteSetting ${result.ecranEnteteSetting}');
+    debugPrint('adressServer ${result.adressServer}');
     ref.read(updateModeAppelState.notifier).state = result.ecranModeAppel??DateTime(0, 0, 0, 0, 0, 0, 0, 0);
     ref.read(updateModeVideoState.notifier).state = result.ecranModeVideo??DateTime(0, 0, 0, 0, 0, 0, 0, 0);
     ref.read(updateSettingState.notifier).state = result.ecranEnteteSetting??DateTime(0, 0, 0, 0, 0, 0, 0, 0);
@@ -130,10 +131,13 @@ class IsarFunction {
     DataIsar? modalservice = await isar.dataIsars.where().findFirst();
     debugPrint("saveConfig $adressServer");
     if (modalservice != null) {
+      debugPrint("saveConfig notnull ${modalservice.adressServer} ${adressServer}");
       modalservice.adressServer = adressServer;
       modalservice.nomTv = numGuichet;
+
     } else {
       modalservice = DataIsar(adressServer: adressServer, nomTv: numGuichet);
+      debugPrint("saveConfig $adressServer");
     }
     await isar.writeTxn(() async {
       await isar.dataIsars.clear();
@@ -158,15 +162,13 @@ class IsarFunction {
     if (modalEnteteEcran == null) {
       result = ModalEnteteEcran(
         enteteArab: 'عنوان تلفاز بالعربية',
-        fontArab: '',
+        fontArab: 'Amiri',
         colorTextArab: Colors.black.toARGB32(),
         isBoldArab: true,
-        isItalicArab: true,
         enteteFrancais: 'titre tv en francais',
-        fontFrancais: '',
+        fontFrancais: 'Amiri',
         colorTextFrancais: Colors.black.toARGB32(),
         isBoldFrancais: true,
-        isItalicFrancais: true,
         colorFond: Colors.lightBlueAccent.toARGB32(),
         isFondImage: false,
         colorIcon: Colors.transparent.toARGB32(),
@@ -203,16 +205,12 @@ class IsarFunction {
       result = ModalModeAppel(
         guichetTitreColorText: Colors.black.toARGB32(),
         guichetTitreIsBold: false,
-        guichetTitreIsItalic: false,
         guichetNumeroColorText: Colors.black.toARGB32(),
         guichetNumeroIsBold: false,
-        guichetNumeroIsItalic: false,
         numeroTitreColorText: Colors.black.toARGB32(),
         numeroTitreIsBold: false,
-        numeroTitreIsItalic: false,
         numeroNumeroColorText: Colors.black.toARGB32(),
         numeroNumeroIsBold: false,
-        numeroNumeroIsItalic: false,
         guichetTitreStyleBoite: '',
         guichetTitreCouleurFond: Colors.blueAccent.toARGB32(),
         guichetTitreCouleurClignotment: Colors.yellow.toARGB32(),
@@ -226,6 +224,19 @@ class IsarFunction {
         numeroNumeroCouleurFond: Colors.deepOrangeAccent.toARGB32(),
         numeroNumeroCouleurClignotment: Colors.yellow.toARGB32(),
         intervalleClignotment: 5,
+
+        nomGuichetAr: 'شباك', nomGuichetFr: 'guichet', nomNumeroAr: 'رقم', nomNumeroFr: 'numero', modeAppelSelected: 'mode 1',
+        fontNumeroSelected: 'Amiri', isListGuchetVisible: true, positionAffichageServiceMA: 'droite',
+        textListAppelMAColor: Colors.white.toARGB32(), textListAppelMAisBold: true, textListAppelMAfontFr: 'Amiri',
+        textListAppelMAfontAr: 'Amiri', coleurGuichetMA: Colors.amber.toARGB32(), coleurNumeroMA: Colors.amber.toARGB32(),
+
+        boiteServiceBandeMAFond: Colors.red.toARGB32(),
+        boiteServiceBandeMAClignotment: Colors.yellow.toARGB32(),
+        textServiceBandeMAisBold: true,
+        textServiceBandeMAColor: Colors.white.toARGB32(),
+        textServiceBandeMAfontFr: 'Amiri',
+        textServiceBandeMAfontAr: 'Amiri',
+        visibleTextServiceBandeMA: true,
       );
     } else {
       result = dataSaved;
@@ -234,13 +245,26 @@ class IsarFunction {
     return result;
   }
 
-  Future<void> saveModeVideoEcran(ModalModeVideo modalModeVideo) async {
-    final isar = await db;
-    await isar.writeTxn(() async {
-      await isar.modalModeVideos.clear();
-      await isar.modalModeVideos.put(modalModeVideo);
-      debugPrint('saveEnteteEcran saved');
+  Future<void> saveModeVideoEcran(ModalModeVideo modalModeVideo, List<ModalServiceEcran> listModalServiceEcran) async {
+    final settingsIsar = await db;
+
+    await settingsIsar.writeTxn(() async {
+      await settingsIsar.modalModeVideos.clear();
+      await settingsIsar.modalServiceEcrans.clear();
+
+      // D'abord, sauvegarder tous les services
+      for (var service in listModalServiceEcran) {
+        await settingsIsar.modalServiceEcrans.put(service);
+      }
+
+      // Ensuite, sauvegarder modalModeVideo pour lui donner un ID
+    await settingsIsar.modalModeVideos.put(modalModeVideo);
+
+      // Puis, ajouter les liens (les services sont déjà en base maintenant)
+      modalModeVideo.listService.addAll(listModalServiceEcran);
+      await modalModeVideo.listService.save();
     });
+
   }
 
   Future<ModalModeVideo> getModeVideoEcran() async {
@@ -256,8 +280,9 @@ class IsarFunction {
         durerImage: 60,
         volume: "99.0",
         isBold: true,
-        isItalic: false,
         colorText: Colors.black.toARGB32(),
+        fontArabServiceMV: 'Amiri', fontFrancaisServiceMV: 'Amiri',
+        isBandeNumeroVisible: true, coleurGuichetMV: Colors.amber.toARGB32(), coleurNumeroMV: Colors.amber.toARGB32(),
         listMedia: [],
       );
     } else {

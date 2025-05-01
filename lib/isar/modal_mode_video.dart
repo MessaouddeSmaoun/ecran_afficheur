@@ -12,14 +12,21 @@ class ModalModeVideo {
     required this.durerImage,
     required this.volume,
     required this.isBold,
-    required this.isItalic,
     required this.colorText,
     required this.listMedia,
+    required this.fontArabServiceMV,
+    required this.fontFrancaisServiceMV,
+
+    required this.isBandeNumeroVisible,
+    required this.coleurGuichetMV,
+    required this.coleurNumeroMV,
   });
 
   Id id = Isar.autoIncrement; // you can also use id = null to auto increment
 
-
+  int coleurGuichetMV;
+  int coleurNumeroMV;
+  bool isBandeNumeroVisible;
 
   String positionAffichageService;
   String modeAffichageMultimedia;
@@ -28,8 +35,9 @@ class ModalModeVideo {
   int durerImage;
   String volume;
   bool isBold;
-  bool isItalic;
   int colorText;
+  String fontFrancaisServiceMV;
+  String fontArabServiceMV;
   List<String> listMedia;
 
   final listService = IsarLinks<ModalServiceEcran>();
@@ -40,10 +48,21 @@ class ModalModeVideo {
 
 @collection
 class ModalServiceEcran {
-  ModalServiceEcran({required this.indexService,required this.nomArab,required this.nomFrancais});
+  ModalServiceEcran( {required this.index,
+    required this.appeler,
+    required this.reste,
+    required this.guichet,
+    required this.serviceAr,
+    required this.serviceFr});
 
   Id id = Isar.autoIncrement;
-  short indexService;
-  String nomArab;
-  String nomFrancais;
+
+
+int index;
+String appeler;
+String reste;
+String guichet;
+String serviceAr;
+String serviceFr;
 }
+

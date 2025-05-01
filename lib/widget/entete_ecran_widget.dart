@@ -9,9 +9,12 @@ class EnteteEcanWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return  Expanded(
         flex: 11,
-        child: EnteteDesign(
+        child: FractionallySizedBox(
+          heightFactor: 0.7,
+          child: EnteteDesign(
+          ),
         ));
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:ecran_afficheur/principal_page.dart';
 import 'package:ecran_afficheur/splash_screen.dart';
@@ -9,14 +10,14 @@ import 'package:ecran_afficheur/variable.dart';
 import 'package:ecran_afficheur/widget/connection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_kit/media_kit.dart';
 import 'package:video_player_media_kit/video_player_media_kit.dart';
+import 'package:window_manager/window_manager.dart';
 
 import 'configuration_page.dart';
 import 'function/function.dart';
 import 'function/function_server.dart';
 import 'function/isar_function.dart';
-import 'modal/modal_service.dart';
+import 'isar/modal_mode_video.dart';
 import 'mode_video/state_mode_video.dart';
 
 
@@ -69,9 +70,9 @@ Future<void> connectToServer(WidgetRef ref) async {
                         (test) => test.index == header["index"],);
 
                 if (index >= 0) {
-                  List<ModalService> listService = ref.watch(listServiceModeVideo);
+                  List<ModalServiceEcran> listService = ref.watch(listServiceModeVideo);
 
-                  ModalService modelSelected = listService[index];
+                  ModalServiceEcran modelSelected = listService[index];
                   modelSelected.reste = header[ "reste"];
                   debugPrint("recue ^${header[ "reste"] }...index $index");
                   listService[index] = modelSelected;
@@ -83,9 +84,14 @@ Future<void> connectToServer(WidgetRef ref) async {
 
                       case "newAppel":
                         debugPrint("newAppel");
-                        listAppel.add(header);
-                        if (!ref.watch(isAppel)) {
-                          newAppel(ref, listAppel);
+                        int indexService = ref.watch(listServiceModeVideo).indexWhere((test) => test.index == header["index"]);
+                        debugPrint("indexService $indexService");
+                        if (indexService != -1) {
+                          listAppel.add(header);
+                          debugPrint("newAppel $listAppel");
+                          if (!ref.watch(isAppel)) {
+                            newAppel(ref, listAppel);
+                          }
                         }
                     }
                 }
@@ -132,9 +138,24 @@ void reconnect(WidgetRef ref) {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await IsarFunction().openDB();
+  await windowManager.ensureInitialized();
+
   VideoPlayerMediaKit.ensureInitialized(
-    android: true,
+    windows: true,
   );
+
+  WindowOptions windowOptions = WindowOptions(
+    skipTaskbar: false,
+  );
+
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    Size displays = await windowManager.getSize();
+    await windowManager.setPosition(Offset(displays.width + 100, displays.height));
+    await windowManager.setFullScreen(true);
+    await windowManager.show();
+    await windowManager.focus();
+  });
+
   runApp(const ProviderScope(child: MyApp()));
 }
 

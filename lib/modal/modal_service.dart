@@ -2,13 +2,15 @@ interface class ModalService {
   ModalService(
       {required this.index,
       required this.appeler,
-      required this.reste,
-      required this.titreArAff,
-      required this.titreFrAff});
+        required this.reste,
+        required this.guichet,
+      required this.serviceAr,
+      required this.serviceFr});
 
   int index;
   String appeler;
   String reste;
-  String titreArAff;
-  String titreFrAff;
+  String guichet;
+  String serviceAr;
+  String serviceFr;
 }

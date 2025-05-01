@@ -5,18 +5,41 @@ part 'modal_mode_appel.g.dart';
 @collection
 class ModalModeAppel {
   ModalModeAppel({
+
+    required this.nomGuichetAr,
+    required this.nomGuichetFr,
+    required this.nomNumeroAr,
+    required this.nomNumeroFr,
+    required this.modeAppelSelected,
+    required this.fontNumeroSelected,
+    required this.isListGuchetVisible,
+    required this.positionAffichageServiceMA,
+    required this.textListAppelMAColor,
+    required this.textListAppelMAisBold,
+    required this.textListAppelMAfontFr,
+    required this.textListAppelMAfontAr,
+    required this.coleurGuichetMA,
+    required this.coleurNumeroMA,
+
+
+
+    required this.boiteServiceBandeMAFond,
+    required this.boiteServiceBandeMAClignotment,
+    required this.textServiceBandeMAisBold,
+    required this.textServiceBandeMAColor,
+    required this.textServiceBandeMAfontFr,
+    required this.textServiceBandeMAfontAr,
+    required this.visibleTextServiceBandeMA,
+
+
     required this.guichetTitreColorText,
     required this.guichetTitreIsBold,
-    required this.guichetTitreIsItalic,
     required this.guichetNumeroColorText,
     required this.guichetNumeroIsBold,
-    required this.guichetNumeroIsItalic,
     required this.numeroTitreColorText,
     required this.numeroTitreIsBold,
-    required this.numeroTitreIsItalic,
     required this.numeroNumeroColorText,
     required this.numeroNumeroIsBold,
-    required this.numeroNumeroIsItalic,
     required this.guichetTitreStyleBoite,
     required this.guichetTitreCouleurFond,
     required this.guichetTitreCouleurClignotment,
@@ -34,24 +57,44 @@ class ModalModeAppel {
 
   Id id = Isar.autoIncrement;
 
+  int boiteServiceBandeMAFond;
+  int boiteServiceBandeMAClignotment;
+  bool textServiceBandeMAisBold;
+  int textServiceBandeMAColor;
+  String textServiceBandeMAfontFr;
+  String textServiceBandeMAfontAr;
+  bool visibleTextServiceBandeMA;
+
+
+  String nomGuichetAr;
+  String nomGuichetFr;
+  String nomNumeroAr;
+  String nomNumeroFr;
+  String modeAppelSelected;
+  String fontNumeroSelected;
+  bool isListGuchetVisible;
+  String positionAffichageServiceMA;
+  int textListAppelMAColor;
+  bool textListAppelMAisBold;
+  String textListAppelMAfontFr;
+  String textListAppelMAfontAr;
+  int coleurGuichetMA;
+  int coleurNumeroMA;
+
   int guichetTitreColorText;
   bool guichetTitreIsBold;
-  bool guichetTitreIsItalic;
 
 
   int guichetNumeroColorText;
   bool guichetNumeroIsBold;
-  bool guichetNumeroIsItalic;
 
 
   int numeroTitreColorText;
   bool numeroTitreIsBold;
-  bool numeroTitreIsItalic;
 
 
   int numeroNumeroColorText;
   bool numeroNumeroIsBold;
-  bool numeroNumeroIsItalic;
 
 
   String guichetTitreStyleBoite;

@@ -49,6 +49,7 @@ import 'main.dart';
       Future.delayed(const Duration(seconds: 4), () async {
           playerSound = pl.AudioPlayer();
           player = Player();
+          playerNumber = Player();
           controller = VideoController(player);
       });
 

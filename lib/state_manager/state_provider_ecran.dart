@@ -6,12 +6,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../modal/modal_icon.dart';
 
 final modalTextEntete = StateProvider<ModalText>((ref) {
-  return ModalText(titre: 'titre en francais', font: '', colorText: Colors.black, isBold: true, isItalic: true);
+  return ModalText(titre: 'titre en francais', fontFr: 'Amiri', fontAr: 'Amiri',  colorText: Colors.black, isBold: true);
 
 });
 
 final modalSousTextEntete = StateProvider<ModalText>((ref) {
-  return ModalText(titre: '', font: '', colorText: Colors.black, isBold: true, isItalic: true);
+  return ModalText(titre: '', fontFr: 'Amiri', fontAr: 'Amiri',  colorText: Colors.black, isBold: true);
 });
 
 final modalIconEntete = StateProvider<ModalIcon>((ref) {
@@ -67,6 +67,8 @@ final isFrancais = StateProvider<bool>((ref) {
 final colorFondEntete= StateProvider<Color>((ref) {
   return Colors.green;
 });
+
+
 
 
 

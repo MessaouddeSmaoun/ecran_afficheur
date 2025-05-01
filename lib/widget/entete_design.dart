@@ -30,19 +30,21 @@ class _EnteteDesignState extends ConsumerState<EnteteDesign> {
 
     final styleTitre = TextStyle(
         fontSize: 150,
+        fontFamily: titre.fontFr,
         color: titre.colorText,
         fontWeight:
             (titre.isBold) ? FontWeight.bold : FontWeight.normal,
-        fontStyle:
-            (titre.isItalic) ? FontStyle.italic : FontStyle.normal);
+        fontStyle: FontStyle.normal);
+           // (titre.isItalic) ? FontStyle.italic : FontStyle.normal);
 
     final styleSousTitre = TextStyle(
         fontSize: 150,
+        fontFamily: titre.fontFr,
         color: sousTitre.colorText,
         fontWeight:
             (sousTitre.isBold) ? FontWeight.bold : FontWeight.normal,
-        fontStyle:
-            (sousTitre.isItalic) ? FontStyle.italic : FontStyle.normal);
+        fontStyle: FontStyle.normal);
+         //   (sousTitre.isItalic) ? FontStyle.italic : FontStyle.normal);
 
 
     String usbFolderPath = "${externalDir?.path}/logo_entete.jpg";

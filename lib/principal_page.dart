@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:isolate';
 
 import 'package:ecran_afficheur/state_manager/state_ecran.dart';
 import 'package:ecran_afficheur/state_manager/state_provider_ecran.dart';
@@ -11,7 +10,7 @@ import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 
 import 'function/function.dart';
-import 'mode_appel/apercue_mode_appel.dart';
+import 'mode_appel/state_mode_appel.dart';
 import 'mode_video/apercue_mode_video.dart';
 import 'mode_video/state_mode_video.dart';
 
@@ -22,12 +21,8 @@ class PrincipalPage extends ConsumerStatefulWidget {
   ConsumerState<PrincipalPage> createState() => _PrincipalPageState();
 }
 
-
-
-
 class _PrincipalPageState extends ConsumerState<PrincipalPage> {
-
-/*
+  /*
   Isolate? _isolate;
   ReceivePort _receivePort = ReceivePort();
 
@@ -131,15 +126,14 @@ class _PrincipalPageState extends ConsumerState<PrincipalPage> {
 
  */
 
-@override
+  @override
   void initState() {
     super.initState();
     debugPrint("setstate PrincipalPage");
     initVariable(ref);
-    startTimerMedia();
+    startTimerMedia(ref);
+
   }
-
-
 
   @override
   void dispose() {
@@ -152,93 +146,9 @@ class _PrincipalPageState extends ConsumerState<PrincipalPage> {
       timerMedia?.cancel();
     }
     player.dispose();
+    playerNumber.dispose();
     playerSound.dispose();
   }
-
-
-  void startTimerMedia() {
-    timerMedia = Timer.periodic(const Duration(seconds: 1), (timer) {
-      if (ref.watch(isAppel)) {
-        debugPrint("Appel en cours, arrêt de la lecture et du timer.");
-        stopTimer();
-        player.pause();
-        return; // Stoppe l'exécution du callback
-      }
-
-        elapsedSeconds++;
-        if (elapsedSeconds >= ref.watch(durerLectureMedia)) {
-          stopTimer();
-          player.stop();
-          setState(() {
-            ref.read(indexSelected.notifier).state =
-                ref.watch(indexSelected) + 1;
-            if (ref.watch(indexSelected) == ref.watch(listMediaState).length) {
-              ref.read(indexSelected.notifier).state = 0;
-            }
-          });
-          playNextMedia();
-          startTimerMedia();
-        }
-
-    });
-  }
-
-
-  Future<void> playNextMedia() async {
-
-      if (ref.watch(listMediaState).isNotEmpty) {
-        debugPrint("listMedia.isNotEmpty");
-
-        String currentMedia = ref.watch(listMediaState)[ref.watch(indexSelected)];
-        String usbFolderPath = "${externalDir?.path}/$currentMedia";
-
-        File leFichier = File(usbFolderPath);
-
-        debugPrint("ApercueModeVideo $usbFolderPath");
-
-        if (leFichier.existsSync()) {
-          if (currentMedia.endsWith('.mp4') ||
-              currentMedia.endsWith('.avi') ||
-              currentMedia.endsWith('.wmv') ||
-              currentMedia.endsWith('.flv')) {
-            ref.read(ecranAffichage.notifier).state = Stack(
-              children: [
-                Video(controller: controller,),
-                Container(color: Colors.transparent),
-              ],
-            );
-
-          //  openMediaIsolate(usbFolderPath);
-            await player.open(Media(usbFolderPath));
-            await player.play();
-            await player.setVolume(ref.watch(volume));
-            await Future.delayed(const Duration(seconds: 3));
-
-            int videoDuration = player.state.duration.inSeconds + 1;
-            ref.read(durerLectureMedia.notifier).state = videoDuration;
-          } else {
-            late BoxFit boxFit;
-            if (ref.watch(modeAffichageMultimedia) == 'etirer') {
-              boxFit = BoxFit.fill;
-            } else {
-              boxFit = BoxFit.contain;
-            }
-            ref.read(ecranAffichage.notifier).state = Image.file(
-              leFichier,
-              fit: boxFit,
-            );
-            ref.read(durerLectureMedia.notifier).state = durerImage;
-          }
-        } else {
-          debugPrint("listMedia.is ecranAffichage");
-          ref.read(ecranAffichage.notifier).state = const SizedBox();
-        }
-      } else {
-        debugPrint("listMedia.is Empty");
-        ref.read(ecranAffichage.notifier).state = const SizedBox();
-      }
-
-    }
 
 
 
@@ -246,44 +156,64 @@ class _PrincipalPageState extends ConsumerState<PrincipalPage> {
 
   @override
   Widget build(BuildContext context) {
-
-
-
     String usbFolderPath = "${externalDir?.path}/image_fond.jpg";
     File file = File(usbFolderPath);
 
     debugPrint("setstate PrincipalPage");
 
     final Widget imageFond =
-    (file.existsSync())
-        ? Image.file(
-      file,
-      alignment: Alignment.center,
-      fit: BoxFit.fill,
-      width: double.maxFinite,
-      height: double.maxFinite,
-    )
-        : const SizedBox();
+        (file.existsSync())
+            ? Image.file(
+              file,
+              alignment: Alignment.center,
+              fit: BoxFit.fill,
+              width: double.maxFinite,
+              height: double.maxFinite,
+            )
+            : const SizedBox();
+
+
+      playerNumber.stream.playlist.listen((Playlist playlist) async {
+
+        if (((playlist.index + 1)  > numPlayList) && ref.watch(isArab) && numPlayCurrent !=playlist.index){
+          numPlayCurrent =  playlist.index;
+          ref.read(isFrench.notifier).state = false;
+          debugPrint('langue arab ${playlist.index}');
+        }
+
+         if (playlist.index +1 >= listPlayVoice.medias.length && numPlay !=playlist.index) {
+           debugPrint('playlist. ${playlist.index} ${listPlayVoice.medias.length}');
+           numPlay =  playlist.index;
+
+          await Future.delayed(Duration(seconds: delayAttenteVocal));
+          if (listAppel.isNotEmpty) {
+            listAppel.removeAt(0);
+          }
+          if (listAppel.isNotEmpty) {
+            debugPrint('listAppel.isNotEmpty');
+            newAppel(ref, listAppel);
+          } else {
+            debugPrint('listAppel.isEmpty');
+            ref.read(isAppel.notifier).state = false;
+            numPlay = 0;
+          }
+
+        }
+      });
 
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult : (didPop,_){
-
-      },
+      onPopInvokedWithResult: (didPop, _) {},
       child: Scaffold(
         body: Stack(
           children: [
             (ref.watch(isImageFondEcan))
                 ? imageFond
                 : Container(color: ref.watch(colorFondEcran)),
-            Padding(
-              padding: EdgeInsets.only(top: 10, left: 10, right: 10),
-              child:  switch (ref.watch(isAppel)) {
-                true => const ApercueModeAppel(),
-                false => const ApercueModeVideo(),
-              },
-            ),
-
+            switch (ref.watch(isAppel)) {
+              true =>  ref.watch(widgetAppel),
+              false => const ApercueModeVideo(),
+            },
           ],
         ),
       ),
@@ -291,39 +221,130 @@ class _PrincipalPageState extends ConsumerState<PrincipalPage> {
   }
 }
 
-
 int attente = 0;
+
+void startTimerMedia(WidgetRef ref) {
+  timerMedia = Timer.periodic(const Duration(seconds: 1), (timer) {
+    if (ref.watch(isAppel)) {
+      debugPrint("Appel en cours, arrêt de la lecture et du timer.");
+      stopTimer();
+      player.pause();
+      return;
+    }
+    elapsedSeconds++;
+    if (elapsedSeconds >= ref.watch(durerLectureMedia)) {
+      stopTimer();
+      player.stop();
+
+        ref.read(indexSelected.notifier).state = ref.watch(indexSelected) + 1;
+        if (ref.watch(indexSelected) == ref.watch(listMediaState).length) {
+          ref.read(indexSelected.notifier).state = 0;
+        }
+
+      playNextMedia(ref);
+      startTimerMedia(ref);
+    }
+  });
+}
+
+Future<void> playNextMedia(WidgetRef ref) async {
+  if (ref.watch(listMediaState).isNotEmpty) {
+    debugPrint("listMedia.isNotEmpty");
+
+    String currentMedia = ref.watch(listMediaState)[ref.watch(indexSelected)];
+    String usbFolderPath = "${externalDir?.path}/$currentMedia";
+
+    File leFichier = File(usbFolderPath);
+
+    debugPrint("ApercueModeVideo $usbFolderPath");
+
+    if (leFichier.existsSync()) {
+      if (currentMedia.endsWith('.mp4') ||
+          currentMedia.endsWith('.avi') ||
+          currentMedia.endsWith('.wmv') ||
+          currentMedia.endsWith('.flv')) {
+        ref.read(ecranAffichage.notifier).state = Stack(
+          children: [
+            Video(controller: controller),
+            Container(color: Colors.transparent),
+          ],
+        );
+
+        //  openMediaIsolate(usbFolderPath);
+        await player.open(Media(usbFolderPath));
+        await player.play();
+        await player.setVolume(ref.watch(volume));
+        await Future.delayed(const Duration(seconds: 3));
+
+        int videoDuration = player.state.duration.inSeconds + 1;
+        ref.read(durerLectureMedia.notifier).state = videoDuration;
+      } else {
+        late BoxFit boxFit;
+        if (ref.watch(modeAffichageMultimedia) == 'etirer') {
+          boxFit = BoxFit.fill;
+        } else {
+          boxFit = BoxFit.contain;
+        }
+        ref.read(ecranAffichage.notifier).state = Image.file(
+          leFichier,
+          fit: boxFit,
+        );
+        ref.read(durerLectureMedia.notifier).state = durerImage;
+      }
+    } else {
+      debugPrint("listMedia.is ecranAffichage");
+      ref.read(ecranAffichage.notifier).state = const SizedBox();
+    }
+  } else {
+    debugPrint("listMedia.is Empty");
+    ref.read(ecranAffichage.notifier).state = const SizedBox();
+  }
+}
 
 void startTimer(WidgetRef ref) async {
   timerHorloge = Timer.periodic(const Duration(seconds: 1), (timer) {
     String heur =
-    (DateTime.now().hour < 10)
-        ? "0${DateTime.now().hour}"
-        : "${DateTime.now().hour}";
+        (DateTime.now().hour < 10)
+            ? "0${DateTime.now().hour}"
+            : "${DateTime.now().hour}";
     String minute =
-    (DateTime.now().minute < 10)
-        ? "0${DateTime.now().minute}"
-        : "${DateTime.now().minute}";
+        (DateTime.now().minute < 10)
+            ? "0${DateTime.now().minute}"
+            : "${DateTime.now().minute}";
     String secnde =
-    (DateTime.now().second < 10)
-        ? "0${DateTime.now().second}"
-        : "${DateTime.now().second}";
+        (DateTime.now().second < 10)
+            ? "0${DateTime.now().second}"
+            : "${DateTime.now().second}";
 
     String jour =
-    (DateTime.now().day < 10)
-        ? "0${DateTime.now().day}"
-        : "${DateTime.now().day}";
+        (DateTime.now().day < 10)
+            ? "0${DateTime.now().day}"
+            : "${DateTime.now().day}";
     String mois =
-    (DateTime.now().month < 10)
-        ? "0${DateTime.now().month}"
-        : "${DateTime.now().month}";
+        (DateTime.now().month < 10)
+            ? "0${DateTime.now().month}"
+            : "${DateTime.now().month}";
 
-    if (ref.watch(isFrancais) && ref.watch(isArab)) {
+    if (ref.watch(isFrancais) && ref.watch(isArab) && !ref.watch(isAppel)) {
       if (attente >= 5) {
         if (ref.watch(modalTextEntete) == titreFr) {
+          ref.read(isFrench.notifier).state = false;
+          final textGuichet = ref.watch(textGuichetTitre);
+          textGuichet.titre = "شباك"; // "مكتب";
+          final textNumero = ref.watch(textNumeroTitre);
+          textNumero.titre = "رقم";
           ref.read(modalTextEntete.notifier).state = titreAr;
+          ref.read(textGuichetTitre.notifier).state = textGuichet;
+          ref.read(textNumeroTitre.notifier).state = textNumero;
         } else {
+          ref.read(isFrench.notifier).state = true;
+          final textGuichet = ref.watch(textGuichetTitre);
+          textGuichet.titre = "Guichet"; // "Bureau";
+          final textNumero = ref.watch(textNumeroTitre);
+          textNumero.titre = "Numero";
           ref.read(modalTextEntete.notifier).state = titreFr;
+          ref.read(textGuichetTitre.notifier).state = textGuichet;
+          ref.read(textNumeroTitre.notifier).state = textNumero;
         }
         attente = 0;
       }
@@ -334,7 +355,6 @@ void startTimer(WidgetRef ref) async {
     ref.read(date.notifier).state = "$jour/$mois/${DateTime.now().year}";
   });
 }
-
 
 Future<void> pauseTimer(WidgetRef ref) async {
   debugPrint("currentMedia pauseTimer");
@@ -355,22 +375,24 @@ Future<void> resumeTimer(WidgetRef ref) async {
   debugPrint("currentMedia resumeTimer");
   if (ref.watch(listMediaState).isNotEmpty) {
     String currentMedia = ref.watch(listMediaState)[ref.watch(indexSelected)];
+    debugPrint("currentMedia $currentMedia");
     if (currentMedia.endsWith('.mp4') ||
         currentMedia.endsWith('.avi') ||
         currentMedia.endsWith('.wmv') ||
         currentMedia.endsWith('.flv')) {
       player.play();
     }
+    startTimerMedia(ref);
   }
+
 }
 
 void stopTimer() {
   debugPrint("currentMedia stopTimer");
   timerMedia?.cancel();
   timerMedia = null;
-  elapsedSeconds = 0; // Remet à zéro
+  elapsedSeconds = 0;
 }
-
 
 int elapsedSeconds = 0;
 Timer? timerMedia;
@@ -400,10 +422,6 @@ void playMediaInIsolate(Map<String, dynamic> params) {
 }
 
  */
-
-
-
-
 
 /*
 void socketListener(Map<String, dynamic> args)  async {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../mode_appel/apercue_mode_appel.dart';
+
 
 final isClignot = StateProvider<bool>((ref) {
   return false;
@@ -36,10 +38,19 @@ final isReste = StateProvider<bool>((ref) {
   return false;
 });
 
+final isGuichet = StateProvider<bool>((ref) {
+  return false;
+});
+
 final durerLectureMedia = StateProvider<int>((ref) {
   return 7;
 });
 
 final ecranAffichage = StateProvider<Widget>((ref) {
   return const SizedBox();
+});
+
+
+final widgetAppel = StateProvider<Widget>((ref) {
+  return    const ApercueModeAppel();
 });

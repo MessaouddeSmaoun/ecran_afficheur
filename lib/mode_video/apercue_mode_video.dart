@@ -1,17 +1,15 @@
-import 'dart:io';
 
+import 'package:ecran_afficheur/mode_video/widget/bande_numero_widgetMV.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:media_kit/media_kit.dart';
-import 'package:media_kit_video/media_kit_video.dart';
 
-import '../main.dart';
+import '../modal/modal_text.dart';
 import '../principal_page.dart';
 import '../state_manager/state_ecran.dart';
-import '../variable.dart';
+import '../state_manager/state_provider_ecran.dart';
 import '../widget/date_time_widget.dart';
 import '../widget/entete_ecran_widget.dart';
-import 'list_service_display.dart';
+import 'widget/list_service_display.dart';
 import 'state_mode_video.dart';
 
 class ApercueModeVideo extends ConsumerStatefulWidget {
@@ -58,6 +56,16 @@ class _ApercueModeVideoState extends ConsumerState<ApercueModeVideo> {
   @override
   Widget build(BuildContext context) {
 
+    ModalText  titre = ref.watch(modalTextEntete) ;
+
+
+    final textStyle = TextStyle(
+        fontSize: 200,
+        fontFamily: titre.fontFr,
+        color: titre.colorText,
+        fontWeight:
+        (titre.isBold) ? FontWeight.bold : FontWeight.normal,
+        fontStyle: FontStyle.normal);
 
 
     return Column(
@@ -91,7 +99,10 @@ class _ApercueModeVideoState extends ConsumerState<ApercueModeVideo> {
             ],
           ),
         ),
+        BandeNumeroWidgetMV(textStyle: textStyle),
       ],
     );
   }
 }
+
+

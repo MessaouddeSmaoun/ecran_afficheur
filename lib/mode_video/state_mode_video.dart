@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../modal/modal_service.dart';
+import '../isar/modal_mode_video.dart';
 import '../modal/modal_text.dart';
 import 'modal_list_media.dart';
 
@@ -25,7 +25,7 @@ final positionAffichageService = StateProvider<String>((ref) {
 });
 
 final modalTextService = StateProvider<ModalText>((ref) {
-  return ModalText(titre: 'Guichet', font: 'normal', colorText: Colors.blue, isBold: true, isItalic: false);
+  return ModalText(titre: 'Guichet', fontFr: 'Amiri', fontAr: 'Amiri', colorText: Colors.blue, isBold: true);
 });
 
 final modeAffichageMultimedia = StateProvider<String>((ref) {
@@ -40,7 +40,7 @@ final listMedia2 = StateProvider<List<ModalListMedia>>((ref) {
   return [];
 });
 
-final listServiceModeVideo = StateProvider<List<ModalService>>((ref) {
+final listServiceModeVideo = StateProvider<List<ModalServiceEcran>>((ref) {
   return [];
 });
 
@@ -51,4 +51,17 @@ final hauteurBodyWidget = StateProvider<double>((ref) {
 
 final listMediaState = StateProvider<List<String>>((ref) {
   return [];
+});
+
+final isBandeVisibleMV = StateProvider<bool>((ref) {
+  return true;
+});
+
+
+final coleurServiceMV = StateProvider<Color>((ref) {
+  return Colors.amber;
+});
+
+final coleurNumeroMV = StateProvider<Color>((ref) {
+  return Colors.amber;
 });

@@ -2,19 +2,26 @@ import 'dart:io';
 
 import 'package:ecran_afficheur/function/function_server.dart';
 import 'package:ecran_afficheur/function/isar_function.dart';
+import 'package:ecran_afficheur/function/text_to_voice.dart';
 import 'package:ecran_afficheur/isar/modal_mode_appel.dart';
 import 'package:ecran_afficheur/isar/modal_mode_video.dart';
 import 'package:ecran_afficheur/modal/modal_icon.dart';
-import 'package:ecran_afficheur/modal/modal_service.dart';
 import 'package:ecran_afficheur/state_manager/state_ecran.dart';
 import 'package:ecran_afficheur/variable.dart';
 import 'package:ecran_afficheur/widget/connection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:media_kit/media_kit.dart';
 import 'package:path/path.dart' as p;
 import 'package:permission_handler/permission_handler.dart';
 import '../isar/modal_entete_ecran.dart';
+import '../modal/list_nom.dart';
+import '../modal/modal_boite.dart';
 import '../modal/modal_text.dart';
+import '../mode_appel/page_mode/apercue_mode_appel.dart';
+import '../mode_appel/page_mode/apercue_mode_appel_2.dart';
+import '../mode_appel/page_mode/apercue_mode_appel_3.dart';
+import '../mode_appel/page_mode/apercue_mode_appel_4.dart';
 import '../mode_appel/state_mode_appel.dart';
 import '../mode_video/state_mode_video.dart';
 import '../state_manager/state_provider_ecran.dart';
@@ -24,25 +31,33 @@ Future<void> newAppel(
   WidgetRef ref,
   List<Map<String, dynamic>> jsonObject,
 ) async {
+  numPlay = 0;
+  CurrentIndexPlayer = 0;
+  numPlayList = 0;
+  numPlayCurrent = 0;
 ref.read(isAppel.notifier).state = true;
   ref.read(textNumeroNumero.notifier).state.titre = jsonObject.first["numero"];
-  ref.read(textGuichetNumero.notifier).state.titre =
-      jsonObject.first["n°Bureau"];
+  ref.read(textGuichetNumero.notifier).state.titre = jsonObject.first["n°Bureau"];
   for (var index = 0; index < ref.watch(listServiceModeVideo).length; index++) {
     debugPrint(
-        "listService : ${ref.watch(listServiceModeVideo)[index].index} ${ref.watch(listServiceModeVideo)[index].titreFrAff}");
+        "listService : ${ref.watch(listServiceModeVideo)[index].index} ${ref.watch(listServiceModeVideo)[index].serviceFr}");
     if (ref.watch(listServiceModeVideo)[index].index == jsonObject.first["index"]) {
       ref.read(listServiceModeVideo.notifier).state[index].appeler = jsonObject.first["numero"];
       ref.read(listServiceModeVideo.notifier).state[index].reste = jsonObject.first["reste"];
+      ref.read(listServiceModeVideo.notifier).state[index].guichet = jsonObject.first["n°Bureau"];
+      ref.read(modalServiceAppel.notifier).state =   ref.read(listServiceModeVideo.notifier).state[index];
     }
   }
-
+  if (ref.watch(isFrancais)) {
+    ref
+        .read(isFrench.notifier)
+        .state = true;
+  }
 debugPrint("start Clignotement");
 startClignotement(ref, 22);
-setSound(ref);
-
+  setSound(ref);
 debugPrint("end Clignotement");
- // setPlay(ref);
+
 }
 
 void startClignotement(WidgetRef ref, int count) {
@@ -50,6 +65,7 @@ void startClignotement(WidgetRef ref, int count) {
 
 
   if (count <= 0) {
+    setPlay(ref);
     return;
   }
 
@@ -69,13 +85,11 @@ void updateSetting(WidgetRef ref, Map<String, dynamic> jsonObject) {
     enteteArab: jsonObject["enteteArab"],
     fontArab: jsonObject["fontArab"],
     colorTextArab: jsonObject["colorDateHorloge"], // jsonObject["colorTextArab"],
-    isBoldArab:  true, // jsonObject["isBoldArab"],
-    isItalicArab: jsonObject["isItalicArab"],
+    isBoldArab:  jsonObject["isBoldArab"],
     enteteFrancais: jsonObject["enteteFrancais"],
     fontFrancais: jsonObject["fontFrancais"],
     colorTextFrancais: jsonObject["colorDateHorloge"], // jsonObject["colorTextFrancais"],
-    isBoldFrancais: true, // jsonObject["isBoldFrancais"],
-    isItalicFrancais: jsonObject["isItalicFrancais"],
+    isBoldFrancais: jsonObject["isBoldFrancais"],
     colorFond: jsonObject["colorFond"],
     isFondImage: jsonObject["isFondImage"],
     colorIcon: jsonObject["colorIcon"],
@@ -99,18 +113,39 @@ void updateSetting(WidgetRef ref, Map<String, dynamic> jsonObject) {
 void updateModeAppel(WidgetRef ref, Map<String, dynamic> jsonObject) {
 
   ModalModeAppel modeAppel = ModalModeAppel(
+
+
+      boiteServiceBandeMAFond: jsonObject["boiteServiceBandeMAFond"],
+      boiteServiceBandeMAClignotment: jsonObject["boiteServiceBandeMAClignotment"],
+      textServiceBandeMAisBold: jsonObject["textServiceBandeMAisBold"],
+      textServiceBandeMAColor: jsonObject["textServiceBandeMAColor"],
+      textServiceBandeMAfontFr: jsonObject["textServiceBandeMAfontFr"],
+      textServiceBandeMAfontAr: jsonObject["textServiceBandeMAfontAr"],
+      visibleTextServiceBandeMA: jsonObject["visibleTextServiceBandeMA"],
+
+      nomGuichetAr: jsonObject["nomGuichetAr"],
+      nomGuichetFr: jsonObject["nomGuichetFr"],
+      nomNumeroAr: jsonObject["nomNumeroAr"],
+      nomNumeroFr: jsonObject["nomNumeroFr"],
+      modeAppelSelected: jsonObject["modeAppelSelected"],
+      fontNumeroSelected: jsonObject["fontNumeroSelected"],
+      isListGuchetVisible: jsonObject["isListGuchetVisible"],
+      positionAffichageServiceMA: jsonObject["positionAffichageServiceMA"],
+      textListAppelMAColor: jsonObject["textListAppelMAColor"],
+      textListAppelMAisBold: jsonObject["textListAppelMAisBold"],
+      textListAppelMAfontFr: jsonObject["textListAppelMAfontFr"],
+      textListAppelMAfontAr: jsonObject["textListAppelMAfontAr"],
+      coleurGuichetMA: jsonObject["coleurGuichetMA"],
+      coleurNumeroMA: jsonObject["coleurNumeroMA"],
+
       guichetTitreColorText: jsonObject["guichetTitreColorText"],
       guichetTitreIsBold: jsonObject["guichetTitreIsBold"],
-      guichetTitreIsItalic: jsonObject["guichetTitreIsItalic"],
       guichetNumeroColorText: jsonObject["guichetNumeroColorText"],
       guichetNumeroIsBold: jsonObject["guichetNumeroIsBold"],
-      guichetNumeroIsItalic: jsonObject["guichetNumeroIsItalic"],
       numeroTitreColorText: jsonObject["numeroTitreColorText"],
       numeroTitreIsBold: jsonObject["numeroTitreIsBold"],
-      numeroTitreIsItalic: jsonObject["numeroTitreIsItalic"],
       numeroNumeroColorText: jsonObject["numeroNumeroColorText"],
       numeroNumeroIsBold: jsonObject["numeroNumeroIsBold"],
-      numeroNumeroIsItalic: jsonObject["numeroNumeroIsItalic"],
       guichetTitreStyleBoite: jsonObject["guichetTitreStyleBoite"],
       guichetTitreCouleurFond: jsonObject["guichetTitreCouleurFond"],
       guichetTitreCouleurClignotment: jsonObject["guichetTitreCouleurClignotment"],
@@ -132,125 +167,165 @@ void updateModeAppel(WidgetRef ref, Map<String, dynamic> jsonObject) {
   ref.read(updateModeAppelState.notifier).state = DateTime.parse(jsonObject["updateModeAppel"]);
 }
 
-void updateModeVideo(WidgetRef ref, Map<String, dynamic> jsonObject) {
+Future<void> updateModeVideo(WidgetRef ref, Map<String, dynamic> jsonObject) async {
 
   ModalModeVideo modeVideo = ModalModeVideo(
-      positionAffichageService: jsonObject["positionAffichageService"],
+      positionAffichageService: jsonObject["positionAffichageServiceMV"],
       modeAffichageMultimedia: jsonObject["modeAffichageMultimedia"],
       isServiceVisible: jsonObject["isServiceVisible"],
       isResteVisible: jsonObject["isResteVisible"],
       durerImage: jsonObject["durerImage"],
       volume: jsonObject["volume"],
-      isBold: jsonObject["isBold"],
-      isItalic: jsonObject["isItalic"],
-      colorText: jsonObject["colorText"],
+      isBold: jsonObject["textListAppelMVisBold"],
+      colorText: jsonObject["textListAppelMVColor"],
+      fontArabServiceMV: jsonObject["textListAppelMVfontAr"],
+      fontFrancaisServiceMV: jsonObject["textListAppelMVfontFr"],
+      isBandeNumeroVisible: jsonObject["isBandeNumeroVisible"],
+      coleurGuichetMV: jsonObject["coleurGuichetMV"],
+      coleurNumeroMV: jsonObject["coleurNumeroMV"],
       listMedia: jsonObject["listMedia"].cast<String>()
   );
 
 
+  List<ModalServiceEcran> listService = [];
+  for (var numberList = 1;
+  numberList <= jsonObject['listService'];
+  numberList++) {
+    ModalServiceEcran service = ModalServiceEcran(
+        index: jsonObject['index$numberList'],
+        appeler: "--",
+        guichet: '--',
+        reste: "--",
+        serviceAr: jsonObject['serviceAr$numberList'],
+        serviceFr: jsonObject['serviceFr$numberList'],);
+    listService.add(service);
+
+
+
+  }
+
+  listService.sort((a, b) => a.index.compareTo(b.index));
+
+ await IsarFunction().saveModeVideoEcran(modeVideo, listService);
+  IsarFunction().setLastUpdateModeVideo(DateTime.parse(jsonObject["updateModeVideo"]));
+
   setModeVideo(ref,modeVideo);
 
-  IsarFunction().saveModeVideoEcran(modeVideo);
-  IsarFunction().setLastUpdateModeVideo(DateTime.parse(jsonObject["updateModeVideo"]));
   ref.read(updateModeVideoState.notifier).state = DateTime.parse(jsonObject["updateModeVideo"]);
 }
 
 void updateNowService(WidgetRef ref, Map<String, dynamic> jsonObject) {
-  List<ModalService> listService = [];
+  List<ModalServiceEcran> listService = ref.watch(listServiceModeVideo);
   for (var numberList = 1;
       numberList <= jsonObject['nombreList'];
       numberList++) {
-    ModalService service = ModalService(
-        index: jsonObject['index$numberList'],
-        appeler: jsonObject['appeler$numberList'],
-        reste: jsonObject['reste$numberList'],
-        titreArAff: jsonObject['titreArAff$numberList'],
-        titreFrAff: jsonObject['titreFrAff$numberList']);
-    listService.add(service);
+
+    int indexService = listService.indexWhere((test) => test.index == jsonObject['index$numberList']);
+    if (indexService != -1) {
+
+      listService[indexService]
+         ..guichet = '--'
+     ..reste = jsonObject['reste$numberList']
+     ..appeler = jsonObject['appeler$numberList'];
+
+    }
+
   }
   ref.read(listServiceModeVideo.notifier).state = [...listService];
-
-  debugPrint("ref.read(listServiceModeVideo ${ref.read(listServiceModeVideo).length}");
 
 }
 
 Future<void> setSound(WidgetRef ref) async {
   debugPrint("debut setSound");
-  await playerSound.play(pl.AssetSource('audio/sound1.mp3'),volume: 100);
+  await playerSound.play(pl.AssetSource('audio/song_notifier/sound2.mp3'),volume: 100);
   debugPrint("fin setSound");
-
-  Future.delayed(const Duration(seconds: 4), (){
-    setPlay(ref);
-  });
 
 
 }
 
 Future<void> setPlay(WidgetRef ref) async {
- // String symbol = ref.watch(textNumeroNumero).titre.replaceAll(RegExp(r'[^a-zA-Z]'), '');
+  String symbol = ref.watch(textNumeroNumero).titre.replaceAll(RegExp(r'[^a-zA-Z]'), '');
   String numbers = ref.watch(textNumeroNumero).titre.replaceAll(RegExp(r'[^0-9]'), '');
 
   numbers = int.parse(numbers).toString();
 
-  debugPrint("langueFrancaisDisp $langueFrancaisDisp");
-  debugPrint("langueArabDisp ${ref.watch(isFrancais)}");
-  debugPrint("langueFrancaisDisp $langueFrancaisDisp");
-  debugPrint("langueArabDisp ${ref.watch(isArab)}");
-/*
-  if (ref.watch(isFrancais) && langueFrancaisDisp) {
+  String pathFile = Directory.current.path;
+  final String path = '$pathFile\\assets\\audio';
 
-    await flutterTts.setLanguage("fr-FR");
-    await flutterTts.speak("numero",);
-    await Future.delayed(Duration(milliseconds: 150));
+  final playerMedia = TextToVoice();
+  listPlayVoice = Playlist([]);
+
+  debugPrint("symbol $symbol");
+  debugPrint("numbers $numbers");
+
+  isFinish = false;
+
+  if (ref.watch(isFrancais)) {
+    Playlist list = await playerMedia.textFrench(false, "numero");
+    numPlayList += list.medias.length;
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.attente("silence150");
+    numPlayList += list.medias.length;
+    listPlayVoice.medias.addAll(list.medias);
     if (symbol != "") {
-      await flutterTts.speak(symbol);
-      await Future.delayed(Duration(milliseconds: 30));
+      Playlist list = await playerMedia.textFrench(true, symbol);
+      numPlayList += list.medias.length;
+      listPlayVoice.medias.addAll(list.medias);
+      list = await playerMedia.attente("silence25");
+      numPlayList += list.medias.length;
+      listPlayVoice.medias.addAll(list.medias);
     }
-    await flutterTts.speak(numbers);
-    await Future.delayed(Duration(milliseconds: 700));
-    await flutterTts.speak("bureau");
-    await Future.delayed(Duration(milliseconds: 20));
-    await flutterTts.speak(ref.watch(textGuichetNumero).titre);
+    list = await playerMedia.numberFrench(numbers);
+    numPlayList += list.medias.length;
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.attente("silence700");
+    numPlayList += list.medias.length;
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.textFrench(false, "guichet");
+    numPlayList += list.medias.length;
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.attente("silence25");
+    numPlayList += list.medias.length;
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.numberFrench(ref.watch(textGuichetNumero).titre);
+    numPlayList += list.medias.length;
+    listPlayVoice.medias.addAll(list.medias);
 
-    debugPrint("isFrancais");
+    debugPrint("isFrancais  ${ listPlayVoice.medias.first.start} ${ listPlayVoice.medias.first.end}");
   }
 
- */
+  if (ref.watch(isArab) && ref.watch(isFrancais)) {
+    Playlist list = await playerMedia.attente("silence1500");
+    listPlayVoice.medias.addAll(list.medias);
+  }
 
-
-/*
-  if (ref.watch(isArab) && langueArabDisp){
-    if (ref.watch(isFrancais) && langueFrancaisDisp) {
-      await Future.delayed(Duration(milliseconds: 900));
-    }
-    await flutterTts.setLanguage("ar");
-    await flutterTts.speak("رقم",);
-    await Future.delayed(Duration(milliseconds: 150));
+  if (ref.watch(isArab)) {
+    Playlist list = await playerMedia.textArab(false, "numero");
+    listPlayVoice.medias.addAll(list.medias);
+    listPlayVoice.medias.add(Media('$path\\silence150.wav'));
     if (symbol != "") {
-      await flutterTts.speak(symbol);
-      await Future.delayed(Duration(milliseconds: 30));
+      Playlist list = await playerMedia.textArab(true, symbol);
+      listPlayVoice.medias.addAll(list.medias);
+      list = await playerMedia.attente("silence25");
+      listPlayVoice.medias.addAll(list.medias);
     }
-    await flutterTts.speak(numbers);
-    await Future.delayed(Duration(milliseconds: 700));
-    await flutterTts.speak("رقم مكتب");
-    await Future.delayed(Duration(milliseconds: 20));
-    await flutterTts.speak(ref.watch(textGuichetNumero).titre);
+    list = await playerMedia.numberArab(numbers);
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.attente("silence700");
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.textArab(false, "guichet");
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.attente("silence25");
+    listPlayVoice.medias.addAll(list.medias);
+    list = await playerMedia.numberArab(ref.watch(textGuichetNumero).titre);
+    listPlayVoice.medias.addAll(list.medias);
+
     debugPrint("isArab");
   }
 
- */
+  debugPrint("numPlayList $numPlayList");
 
-
-
-  await Future.delayed(Duration(seconds: delayAttenteVocal));
-  if (listAppel.isNotEmpty) {
-    listAppel.removeAt(0);
-  }
-  if (listAppel.isNotEmpty) {
-    newAppel(ref, listAppel);
-  } else {
-    ref.read(isAppel.notifier).state = false;
-  }
+  await playerNumber.open(listPlayVoice);
 
 }
 
@@ -346,6 +421,7 @@ Future<List<String>> listUsbFiles() async {
   List<String> list = [];
   if (externalDir != null) {
     String usbFolderPath = "${externalDir?.path}";
+    debugPrint("usbFolderPath $usbFolderPath");
     Directory usbDir = Directory(usbFolderPath);
     for (var item in usbDir.listSync()) {
       list.add(item.path.split("/").last);
@@ -362,7 +438,9 @@ Future<String?> createUsbDirectory() async {
   debugPrint("createUsbDirectory");
 
   if (await Permission.storage.request().isGranted) {
-    externalDir = Directory("/storage/emulated/0/appaznay/ressources_media");
+  //  externalDir = Directory("/storage/emulated/0/appaznay/ressources_media");
+    final dir = Directory.current.path;
+    externalDir = Directory("$dir\\ressources_media");
     String? usbFolderPath = externalDir?.path;
     if (!externalDir!.existsSync()) {
       externalDir?.createSync(recursive: true);
@@ -389,31 +467,53 @@ Future<String?> createUsbDirectory() async {
 
 Future<void> setModeAppel(WidgetRef ref, ModalModeAppel modeAppel) async {
 
+  switch(modeAppel.modeAppelSelected) {
+    case 'mode 1' : ref.read(widgetAppel.notifier).state = ApercueModeAppel();
+    case 'mode 2' : ref.read(widgetAppel.notifier).state = ApercueModeAppel2();
+    case 'mode 3' : ref.read(widgetAppel.notifier).state = ApercueModeAppel3();
+    case 'mode 4' : ref.read(widgetAppel.notifier).state = ApercueModeAppel4();
+  }
+
+  ModalText interModalText = ModalText(titre: 'service',
+      fontFr: modeAppel.textServiceBandeMAfontFr,
+      fontAr: modeAppel.textServiceBandeMAfontAr,
+      colorText: Color(modeAppel.textServiceBandeMAColor),
+      isBold: modeAppel.textServiceBandeMAisBold);
+
+  ref.read(textServiceBandeMA.notifier).state = interModalText;
+
+  ref.read(boiteServiceBandeMA.notifier).state = ModalBoite("", Color(modeAppel.boiteServiceBandeMAFond), Color(modeAppel.boiteServiceBandeMAClignotment));
+  ref.read(isListGuchetVisible.notifier).state = modeAppel.isListGuchetVisible;
+  ref.read(coleurGuichetMA.notifier).state = Color(modeAppel.coleurGuichetMA);
+  ref.read(coleurNumeroMA.notifier).state = Color(modeAppel.coleurNumeroMA);
+  ref.read(visibleTextServiceBandeMA.notifier).state = modeAppel.visibleTextServiceBandeMA;
+
+  ref.read(nomGuichet.notifier).state = ListNom(nomAr: modeAppel.nomGuichetAr, nomFr: modeAppel.nomGuichetFr);
+  ref.read(nomNumero.notifier).state = ListNom(nomAr: modeAppel.nomNumeroAr, nomFr: modeAppel.nomNumeroFr);
+  ref.read(positionAffichageServiceMA.notifier).state = modeAppel.positionAffichageServiceMA;
+  ref.read(fontNumeroSelected.notifier).state = modeAppel.fontNumeroSelected;
+
   ref.read(textNumeroTitre.notifier).state.colorText =
       Color(modeAppel.numeroTitreColorText);
-  ref.read(textNumeroTitre.notifier).state.isItalic =
-      modeAppel.numeroTitreIsItalic;
+
   ref.read(textNumeroTitre.notifier).state.isBold =
       modeAppel.numeroTitreIsBold;
 
   ref.read(textNumeroNumero.notifier).state.colorText =
       Color(modeAppel.numeroNumeroColorText);
-  ref.read(textNumeroNumero.notifier).state.isItalic =
-      modeAppel.numeroNumeroIsItalic;
+
   ref.read(textNumeroNumero.notifier).state.isBold =
       modeAppel.numeroNumeroIsBold;
 
   ref.read(textGuichetTitre.notifier).state.colorText =
       Color(modeAppel.guichetTitreColorText);
-  ref.read(textGuichetTitre.notifier).state.isItalic =
-      modeAppel.guichetTitreIsItalic;
+
   ref.read(textGuichetTitre.notifier).state.isBold =
       modeAppel.guichetTitreIsBold;
 
   ref.read(textGuichetNumero.notifier).state.colorText =
       Color(modeAppel.guichetNumeroColorText);
-  ref.read(textGuichetNumero.notifier).state.isItalic =
-      modeAppel.guichetNumeroIsItalic;
+
   ref.read(textGuichetNumero.notifier).state.isBold =
       modeAppel.guichetNumeroIsBold;
 
@@ -469,16 +569,14 @@ Future<void> setEnteteSetting(WidgetRef ref, ModalEnteteEcran modalEnteteEcran) 
 
   titreFr = ModalText(
       titre: modalEnteteEcran.enteteFrancais,
-      font: modalEnteteEcran.fontFrancais,
+      fontFr: modalEnteteEcran.fontFrancais,
       colorText: Color(modalEnteteEcran.colorTextFrancais),
-      isBold: modalEnteteEcran.isBoldFrancais,
-      isItalic: modalEnteteEcran.isItalicFrancais);
+      isBold: modalEnteteEcran.isBoldFrancais, fontAr: modalEnteteEcran.fontArab);
   titreAr = ModalText(
       titre: modalEnteteEcran.enteteArab,
-      font: modalEnteteEcran.fontArab,
+      fontAr: modalEnteteEcran.fontArab,
       colorText: Color(modalEnteteEcran.colorTextArab),
-      isBold: modalEnteteEcran.isBoldArab,
-      isItalic: modalEnteteEcran.isItalicArab);
+      isBold: modalEnteteEcran.isBoldArab, fontFr: modalEnteteEcran.fontFrancais);
 
   ref.read(modalIconEntete.notifier).state = ModalIcon(
       pathIcon: '',
@@ -490,6 +588,9 @@ Future<void> setEnteteSetting(WidgetRef ref, ModalEnteteEcran modalEnteteEcran) 
 }
 Future<void> setModeVideo(WidgetRef ref, ModalModeVideo modeVideo) async {
 
+  ref.read(isBandeVisibleMV.notifier).state = modeVideo.isBandeNumeroVisible;
+  ref.read(coleurServiceMV.notifier).state = Color(modeVideo.coleurGuichetMV);
+  ref.read(coleurNumeroMV.notifier).state = Color(modeVideo.coleurNumeroMV);
 
   ref.read(positionAffichageService.notifier).state =modeVideo.positionAffichageService;
   ref.read(isServiceVisible.notifier).state = modeVideo.isServiceVisible;
@@ -503,6 +604,12 @@ Future<void> setModeVideo(WidgetRef ref, ModalModeVideo modeVideo) async {
 
   debugPrint("modeVideo.volume ${modeVideo.volume}");
   debugPrint("listMediaState ${ref.read(listMediaState.notifier).state.toString()}");
+
+  List<ModalServiceEcran> listService = [];
+  for (var item in modeVideo.listService) {listService.add(item);}
+  ref.read(listServiceModeVideo.notifier).state = [...listService];
+  debugPrint("listServiceModeVideo ${ref.read(listServiceModeVideo.notifier).state.length}");
+  debugPrint("modeVideo.listService ${modeVideo.listService.length}");
 
   ref.read(volume.notifier).state = double.parse(modeVideo.volume);
 
